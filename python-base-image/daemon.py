@@ -1,6 +1,7 @@
 import traceback
 import json
 import os
+import time
 
 import tornado
 import tornado.ioloop
@@ -45,10 +46,16 @@ def start_fork_server():
 
     while True:
         client, info = file_sock.accept()
+        start = time.perf_counter_ns()
         pid = os.fork()
+        end = time.perf_counter_ns()
 
         if pid:
             client.sendall(bytes(str(pid), 'utf8'))
+            client.sendall(bytes('\n', 'utf8'))
+            client.sendall(bytes(str(end-start), 'utf8'))
+            client.sendall(bytes('ns', 'utf8'))
+            client.sendall(bytes('\n', 'utf8'))
             client.close()
         else:
             file_sock.close()
