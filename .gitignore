@@ -1,3 +1,5 @@
 .base/
 !.base/fs/config.json
 !.base/fs/rootfs/.gitkeep
+!.base/spec/config.json
+!.base/spec/rootfs/.gitkeep
