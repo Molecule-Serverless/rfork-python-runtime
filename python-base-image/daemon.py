@@ -4,6 +4,8 @@ import os
 import time
 import ol
 import uuid
+import socket
+import array
 
 import tornado
 import tornado.ioloop
@@ -13,6 +15,16 @@ import tornado.netutil
 
 file_sock_path = 'fork.sock'
 file_sock = None
+
+# copied from https://docs.python.org/3/library/socket.html#socket.socket.recvmsg
+def recv_fds(sock, msglen, maxfds):
+    fds = array.array("i")   # Array of ints
+    msg, ancdata, flags, addr = sock.recvmsg(msglen, socket.CMSG_LEN(maxfds * fds.itemsize))
+    for cmsg_level, cmsg_type, cmsg_data in ancdata:
+        if (cmsg_level == socket.SOL_SOCKET and cmsg_type == socket.SCM_RIGHTS):
+            # Append data, ignoring any truncated integers at the end.
+            fds.frombytes(cmsg_data[:len(cmsg_data) - (len(cmsg_data) % fds.itemsize)])
+    return msg, list(fds)
 
 def start_app_server():
     # print("daemon.py: start app server on fd: %d" % file_sock.fileno())
@@ -28,6 +40,7 @@ def start_app_server():
                     self.write('bad POST data: "%s"'%str(data))
                     return
                 self.write(event)
+                os._exit(0)
             except Exception:
                 self.set_status(500) # internal error
                 self.write(traceback.format_exc())
@@ -48,11 +61,9 @@ def start_fork_server():
 
     while True:
         client, info = file_sock.accept()
-        # start = time.perf_counter_ns()
-        # rv = ol.unshare()
-        # assert rv == 0
+        _, fds = recv_fds(client, 4, 1)
         pid = os.fork()
-        # end = time.perf_counter_ns()
+        target_fd = fds[0]
 
         if pid:
             # the grand-parent process
@@ -61,8 +72,12 @@ def start_fork_server():
             # print('waitpid returns %d %d' % (ret, exitcode))
             # client.sendall(bytes(str(pid), 'utf8'))
             client.close()
+            os.close(target_fd)
         else:
             # the parent process
+            os.fchdir(target_fd)
+            os.chroot(".")
+            os.close(target_fd)
             rv = ol.unshare()
             assert rv == 0
             pid = os.fork()
@@ -76,10 +91,10 @@ def start_fork_server():
                 file_sock.close()
                 file_sock = None
 
-                file_sock_path = 'fork.sock.' + str(os.getpid()) + '.' + str(uuid.uuid4())
+                file_sock_path = 'fork.sock' # + '.' + str(os.getpid()) # + '.' + str(uuid.uuid4())
                 file_sock = tornado.netutil.bind_unix_socket(file_sock_path)
                 client.close()
-                start_fork_server()
+                start_app_server()
 
 
 def main():
