@@ -40,7 +40,7 @@ def start_app_server():
                     self.write('bad POST data: "%s"'%str(data))
                     return
                 self.write(event)
-                os._exit(0)
+                tornado.ioloop.IOLoop.instance().stop() # Stop the server immediately after receiving the first request
             except Exception:
                 self.set_status(500) # internal error
                 self.write(traceback.format_exc())
