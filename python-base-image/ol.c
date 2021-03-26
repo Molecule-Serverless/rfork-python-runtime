@@ -18,9 +18,20 @@ static PyObject *ol_fork(PyObject *module) {
     return Py_BuildValue("i", res);
 }
 
+static PyObject *ol_setns(PyObject *module, PyObject *args) {
+    int fd, res;
+
+    if (!PyArg_ParseTuple(args, "i", &fd))
+        return Py_BuildValue("i", -1);
+
+    res = setns(fd, 0);
+    return Py_BuildValue("i", res);
+}
+
 static PyMethodDef OlMethods[] = {
     {"unshare", (PyCFunction)ol_unshare, METH_NOARGS, "unshare"},
     {"fork", (PyCFunction)ol_fork, METH_NOARGS, "fork"},
+    {"setns", (PyCFunction)ol_setns, METH_VARARGS, "setns"},
     {NULL, NULL, 0, NULL}
 };
 

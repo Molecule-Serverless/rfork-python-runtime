@@ -7,7 +7,7 @@
 			"gid": 0
 		},
 		"args": [
-			"python", "daemon.py"
+			"/spin"
 		],
 		"env": [
 			"PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
@@ -114,7 +114,6 @@
 		"path": "rootfs",
 		"readonly": false
 	},
-	"hostname": "runc",
 	"mounts": [
 		{
 			"destination": "/proc",
@@ -203,9 +202,6 @@
 		"namespaces": [
 			{
 				"type": "pid"
-			},
-			{
-				"type": "network"
 			},
 			{
 				"type": "ipc"

@@ -61,9 +61,13 @@ def start_fork_server():
 
     while True:
         client, info = file_sock.accept()
-        _, fds = recv_fds(client, 4, 1)
+        _, fds = recv_fds(client, 20, 5)
         pid = os.fork()
         target_fd = fds[0]
+        uts_namespace_fd = fds[1]
+        pid_namespace_fd = fds[2]
+        ipc_namespace_fd = fds[3]
+        mnt_namespace_fd = fds[4]
 
         if pid:
             # the grand-parent process
@@ -73,13 +77,29 @@ def start_fork_server():
             # client.sendall(bytes(str(pid), 'utf8'))
             client.close()
             os.close(target_fd)
+            os.close(uts_namespace_fd)
+            os.close(pid_namespace_fd)
+            os.close(ipc_namespace_fd)
+            os.close(mnt_namespace_fd)
         else:
             # the parent process
             os.fchdir(target_fd)
             os.chroot(".")
             os.close(target_fd)
-            rv = ol.unshare()
+            # rv = ol.unshare()
+            # assert rv == 0
+            rv = ol.setns(uts_namespace_fd)
             assert rv == 0
+            rv = ol.setns(pid_namespace_fd)
+            assert rv == 0
+            rv = ol.setns(ipc_namespace_fd)
+            assert rv == 0
+            rv = ol.setns(mnt_namespace_fd)
+            assert rv == 0
+            os.close(uts_namespace_fd)
+            os.close(pid_namespace_fd)
+            os.close(ipc_namespace_fd)
+            os.close(mnt_namespace_fd)
             pid = os.fork()
             if pid:
                 # the parent process
@@ -91,7 +111,7 @@ def start_fork_server():
                 file_sock.close()
                 file_sock = None
 
-                file_sock_path = 'fork.sock' # + '.' + str(os.getpid()) # + '.' + str(uuid.uuid4())
+                file_sock_path = 'fork.sock' + '.' + str(os.getpid()) # + '.' + str(uuid.uuid4())
                 file_sock = tornado.netutil.bind_unix_socket(file_sock_path)
                 client.close()
                 start_app_server()
