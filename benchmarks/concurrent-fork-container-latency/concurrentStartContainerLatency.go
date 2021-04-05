@@ -3,21 +3,259 @@ package main
 import (
 	"encoding/json"
 	"fmt"
+	"io/ioutil"
 	"os"
 	"os/exec"
 	"strconv"
-	"strings"
 	"time"
 )
+
+var appConfigJSON = `{
+	"ociVersion": "1.0.1-dev",
+	"process": {
+		"terminal": false,
+		"user": {
+			"uid": 0,
+			"gid": 0
+		},
+		"args": [
+			"python", "app.py"
+		],
+		"env": [
+			"PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+			"TERM=xterm"
+		],
+		"cwd": "/",
+		"capabilities": {
+			"bounding": [
+				"CAP_CHOWN",
+				"CAP_DAC_OVERRIDE",
+				"CAP_FSETID",
+				"CAP_FOWNER",
+				"CAP_MKNOD",
+				"CAP_NET_RAW",
+				"CAP_SETGID",
+				"CAP_SETUID",
+				"CAP_SETFCAP",
+				"CAP_SETPCAP",
+				"CAP_NET_BIND_SERVICE",
+				"CAP_SYS_CHROOT",
+				"CAP_KILL",
+				"CAP_AUDIT_WRITE",
+				"CAP_SYS_ADMIN"
+			],
+			"effective": [
+				"CAP_CHOWN",
+				"CAP_DAC_OVERRIDE",
+				"CAP_FSETID",
+				"CAP_FOWNER",
+				"CAP_MKNOD",
+				"CAP_NET_RAW",
+				"CAP_SETGID",
+				"CAP_SETUID",
+				"CAP_SETFCAP",
+				"CAP_SETPCAP",
+				"CAP_NET_BIND_SERVICE",
+				"CAP_SYS_CHROOT",
+				"CAP_KILL",
+				"CAP_AUDIT_WRITE",
+				"CAP_SYS_ADMIN"
+			],
+			"inheritable": [
+				"CAP_CHOWN",
+				"CAP_DAC_OVERRIDE",
+				"CAP_FSETID",
+				"CAP_FOWNER",
+				"CAP_MKNOD",
+				"CAP_NET_RAW",
+				"CAP_SETGID",
+				"CAP_SETUID",
+				"CAP_SETFCAP",
+				"CAP_SETPCAP",
+				"CAP_NET_BIND_SERVICE",
+				"CAP_SYS_CHROOT",
+				"CAP_KILL",
+				"CAP_AUDIT_WRITE",
+				"CAP_SYS_ADMIN"
+			],
+			"permitted": [
+				"CAP_CHOWN",
+				"CAP_DAC_OVERRIDE",
+				"CAP_FSETID",
+				"CAP_FOWNER",
+				"CAP_MKNOD",
+				"CAP_NET_RAW",
+				"CAP_SETGID",
+				"CAP_SETUID",
+				"CAP_SETFCAP",
+				"CAP_SETPCAP",
+				"CAP_NET_BIND_SERVICE",
+				"CAP_SYS_CHROOT",
+				"CAP_KILL",
+				"CAP_AUDIT_WRITE",
+				"CAP_SYS_ADMIN"
+			],
+			"ambient": [
+				"CAP_CHOWN",
+				"CAP_DAC_OVERRIDE",
+				"CAP_FSETID",
+				"CAP_FOWNER",
+				"CAP_MKNOD",
+				"CAP_NET_RAW",
+				"CAP_SETGID",
+				"CAP_SETUID",
+				"CAP_SETFCAP",
+				"CAP_SETPCAP",
+				"CAP_NET_BIND_SERVICE",
+				"CAP_SYS_CHROOT",
+				"CAP_KILL",
+				"CAP_AUDIT_WRITE",
+				"CAP_SYS_ADMIN"
+			]
+		},
+		"rlimits": [
+			{
+				"type": "RLIMIT_NOFILE",
+				"hard": 1024,
+				"soft": 1024
+			}
+		],
+		"noNewPrivileges": true
+	},
+	"root": {
+		"path": "rootfs",
+		"readonly": false
+	},
+	"mounts": [
+		{
+			"destination": "/proc",
+			"type": "proc",
+			"source": "proc"
+		},
+		{
+			"destination": "/dev",
+			"type": "tmpfs",
+			"source": "tmpfs",
+			"options": [
+				"nosuid",
+				"strictatime",
+				"mode=755",
+				"size=65536k"
+			]
+		},
+		{
+			"destination": "/dev/pts",
+			"type": "devpts",
+			"source": "devpts",
+			"options": [
+				"nosuid",
+				"noexec",
+				"newinstance",
+				"ptmxmode=0666",
+				"mode=0620",
+				"gid=5"
+			]
+		},
+		{
+			"destination": "/dev/shm",
+			"type": "tmpfs",
+			"source": "shm",
+			"options": [
+				"nosuid",
+				"noexec",
+				"nodev",
+				"mode=1777",
+				"size=65536k"
+			]
+		},
+		{
+			"destination": "/dev/mqueue",
+			"type": "mqueue",
+			"source": "mqueue",
+			"options": [
+				"nosuid",
+				"noexec",
+				"nodev"
+			]
+		},
+		{
+			"destination": "/sys",
+			"type": "sysfs",
+			"source": "sysfs",
+			"options": [
+				"nosuid",
+				"noexec",
+				"nodev",
+				"ro"
+			]
+		},
+		{
+			"destination": "/sys/fs/cgroup",
+			"type": "cgroup",
+			"source": "cgroup",
+			"options": [
+				"nosuid",
+				"noexec",
+				"nodev",
+				"relatime",
+				"ro"
+			]
+		}
+	],
+	"linux": {
+		"resources": {
+			"devices": [
+				{
+					"allow": false,
+					"access": "rwm"
+				}
+			]
+		},
+		"namespaces": [
+			{
+				"type": "pid"
+			},
+			{
+				"type": "ipc"
+			},
+			{
+				"type": "uts"
+			},
+			{
+				"type": "mount"
+			}
+		],
+		"maskedPaths": [
+			"/proc/acpi",
+			"/proc/asound",
+			"/proc/kcore",
+			"/proc/keys",
+			"/proc/latency_stats",
+			"/proc/timer_list",
+			"/proc/timer_stats",
+			"/proc/sched_debug",
+			"/sys/firmware",
+			"/proc/scsi"
+		],
+		"readonlyPaths": [
+			"/proc/bus",
+			"/proc/fs",
+			"/proc/irq",
+			"/proc/sys",
+			"/proc/sysrq-trigger"
+		]
+	}
+}
+`
 
 var zygoteContainerName = "zygote%d"
 var zygoteContainerBase = ".base/container%d"
 var zygoteRootfs = ".base/container%d/rootfs"
-var configJSONPath = ".base/container%d/config.json"
 var runc = "runc"
 
 var appContainerName = "app%d"
 var appContainerBase = ".base/spin%d"
+var configJSONPath = ".base/spin%d/config.json"
 var appSocketPath = ".base/spin%d/rootfs/fork.sock"
 
 func main() {
@@ -35,18 +273,6 @@ func main() {
 	if err != nil {
 		panic(err)
 	}
-	startContainers(parallelCount)
-	defer removeContainers(parallelCount)
-	/*for i := 0; i < 500; i++ {
-		span, err := routine(0)
-		if err == nil {
-			_ = span
-			// fmt.Println(i)
-			// fmt.Println(span)
-		} else {
-			fmt.Println(err.Error())
-		}
-	}*/
 	_ = timeSpan
 	stopChanArr, resultsChanArr := makeChannels(parallelCount)
 	time.Sleep(time.Second)
@@ -145,7 +371,7 @@ func makeChannels(parallelCount int) (stopChanArr []chan struct{}, resultsChanAr
 	return stopChanArr, resultsChanArr
 }
 
-func routine(count int, socketName string, newContainerName string, thisZygoteContainer string) (int64, error) {
+func routine(count int, socketName string, newContainerName string, _ string) (int64, error) {
 
 	// 0. delete the container, delete the socket file
 	// socketName := fmt.Sprintf(socketPath, count)
@@ -161,13 +387,18 @@ func routine(count int, socketName string, newContainerName string, thisZygoteCo
 	// startChpt!
 	start = time.Now().UnixNano()
 
-	// choice1: start by forking from a zygote
-	startCmd := exec.Command(runc, "fork2container", "--zygote", thisZygoteContainer, "--target", newContainerName)
+	// choice2: start from scratch
+	startCmd := exec.Command(runc, "run", "-d", "--bundle", fmt.Sprintf(appContainerBase, count), newContainerName)
 
 	// 1. wait for output
-	output, err := startCmd.CombinedOutput()
+	/*output, err := startCmd.CombinedOutput()
 	if err != nil {
 		fmt.Println(string(output))
+		panic(err)
+		return 0, err
+	}*/
+	err = startCmd.Run()
+	if err != nil {
 		panic(err)
 		return 0, err
 	}
@@ -178,17 +409,13 @@ func routine(count int, socketName string, newContainerName string, thisZygoteCo
 	// endChpt!
 	end = time.Now().UnixNano()
 
-	pid, err := strconv.Atoi(strings.Trim(string(output), " \n"))
-	if err != nil {
-		panic(err)
-		return 0, err
-	}
-
-	err = killProcess(pid)
-
-	if err != nil {
-		panic(err)
-		return 0, err
+	for {
+		endCmd := exec.Command(runc, "delete", "-f", newContainerName)
+		err := endCmd.Run()
+		if err != nil {
+			continue
+		}
+		break
 	}
 
 	// fmt.Println(end - start) // TODO
@@ -196,15 +423,14 @@ func routine(count int, socketName string, newContainerName string, thisZygoteCo
 }
 
 func initEnviron(parallelCount int) error {
-	if runcPath, ok := os.LookupEnv("RUNC"); ok {
-		runc = runcPath
+	for i := 0; i < parallelCount; i++ {
+		config := fmt.Sprintf(configJSONPath, i)
+		err := ioutil.WriteFile(config, []byte(appConfigJSON), 0644)
+		if err != nil {
+			return err
+		}
 	}
-	cmd := exec.Command("./bootstrapRootFS", "1", string(parallelCount)) // create 1 zygote and parallelCount spin containers to land
-	output, err := cmd.CombinedOutput()
-	if err != nil {
-		fmt.Println(string(output))
-	}
-	return err
+	return nil
 }
 
 func killProcess(pid int) error {

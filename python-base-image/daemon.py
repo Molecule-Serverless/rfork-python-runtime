@@ -81,13 +81,12 @@ def start_fork_server():
             os.close(pid_namespace_fd)
             os.close(ipc_namespace_fd)
             os.close(mnt_namespace_fd)
+            os.waitpid(pid, 0)
         else:
             # the parent process
             os.fchdir(target_fd)
             os.chroot(".")
             os.close(target_fd)
-            # rv = ol.unshare()
-            # assert rv == 0
             rv = ol.setns(uts_namespace_fd)
             assert rv == 0
             rv = ol.setns(pid_namespace_fd)
@@ -111,7 +110,7 @@ def start_fork_server():
                 file_sock.close()
                 file_sock = None
 
-                file_sock_path = 'fork.sock' + '.' + str(os.getpid()) # + '.' + str(uuid.uuid4())
+                file_sock_path = 'fork.sock' # + '.' + str(os.getpid()) # + '.' + str(uuid.uuid4())
                 file_sock = tornado.netutil.bind_unix_socket(file_sock_path)
                 client.close()
                 start_app_server()
