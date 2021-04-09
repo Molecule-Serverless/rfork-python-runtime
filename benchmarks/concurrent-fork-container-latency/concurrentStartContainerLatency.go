@@ -423,6 +423,9 @@ func routine(count int, socketName string, newContainerName string, _ string) (i
 }
 
 func initEnviron(parallelCount int) error {
+	if runcPath, ok := os.LookupEnv("RUNC"); ok {
+		runc = runcPath
+	}
 	for i := 0; i < parallelCount; i++ {
 		config := fmt.Sprintf(configJSONPath, i)
 		err := ioutil.WriteFile(config, []byte(appConfigJSON), 0644)

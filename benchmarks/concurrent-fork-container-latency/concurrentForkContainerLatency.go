@@ -199,7 +199,7 @@ func initEnviron(parallelCount int) error {
 	if runcPath, ok := os.LookupEnv("RUNC"); ok {
 		runc = runcPath
 	}
-	cmd := exec.Command("./bootstrapRootFS", "1", string(parallelCount)) // create 1 zygote and parallelCount spin containers to land
+	cmd := exec.Command("./bootstrapRootFS", "1", fmt.Sprint(parallelCount)) // create 1 zygote and parallelCount spin containers to land
 	output, err := cmd.CombinedOutput()
 	if err != nil {
 		fmt.Println(string(output))

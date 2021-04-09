@@ -1,16 +1,16 @@
 package main
 
 import (
+	"encoding/json"
 	"fmt"
+	"io/ioutil"
 	"os"
 	"os/exec"
-	"runtime"
 	"strconv"
 	"time"
 )
 
-var configJSON = `
-{
+var appConfigJSON = `{
 	"ociVersion": "1.0.1-dev",
 	"process": {
 		"terminal": false,
@@ -19,7 +19,7 @@ var configJSON = `
 			"gid": 0
 		},
 		"args": [
-			"python", "daemon.py"
+			"python", "app.py"
 		],
 		"env": [
 			"PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
@@ -126,7 +126,6 @@ var configJSON = `
 		"path": "rootfs",
 		"readonly": false
 	},
-	"hostname": "runc",
 	"mounts": [
 		{
 			"destination": "/proc",
@@ -214,7 +213,7 @@ var configJSON = `
 		},
 		"namespaces": [
 			{
-				"type": "network"
+				"type": "pid"
 			},
 			{
 				"type": "ipc"
@@ -249,13 +248,15 @@ var configJSON = `
 }
 `
 
-var containerName = "container%d"
-var containerBase = ".base/container%d"
-var rootfs = ".base/container%d/rootfs"
-var configJSONPath = ".base/container%d/config.json"
-var socketPath = ".base/container%d/rootfs/fork.sock"
+var zygoteContainerName = "zygote%d"
+var zygoteContainerBase = ".base/container%d"
+var zygoteRootfs = ".base/container%d/rootfs"
 var runc = "runc"
-var zygoteContainerName = "python-test"
+
+var appContainerName = "app%d"
+var appContainerBase = ".base/spin%d"
+var configJSONPath = ".base/spin%d/config.json"
+var appSocketPath = ".base/spin%d/rootfs/fork.sock"
 
 func main() {
 	parallelCount, err := strconv.Atoi(os.Args[1])
@@ -268,19 +269,18 @@ func main() {
 		fmt.Println(err.Error())
 		return
 	}
-	initEnviron(parallelCount)
-	/*for i := 0; i < 500; i++ {
-		span, err := routine(0)
-		if err == nil {
-			_ = span
-			// fmt.Println(i)
-			// fmt.Println(span)
-		} else {
-			fmt.Println(err.Error())
-		}
+	err = initEnviron(parallelCount)
+	if err != nil {
+		panic(err)
 	}
-	_ = timeSpan*/
+	err = startContainers(parallelCount)
+	defer removeContainers(parallelCount)
+	if err != nil {
+		panic(err)
+	}
+	_ = timeSpan
 	stopChanArr, resultsChanArr := makeChannels(parallelCount)
+	time.Sleep(time.Second)
 	for i := 0; i < parallelCount; i++ {
 		go benchmark(stopChanArr[i], resultsChanArr[i], i)
 	}
@@ -293,22 +293,46 @@ func main() {
 		result := <-resultsChanArr[i]
 		results = append(results, result...)
 	}
-	/*jsonResults, err := json.Marshal(results)
+	jsonResults, err := json.Marshal(results)
 	if err != nil {
 		panic(err)
 	}
-	fmt.Println(string(jsonResults))*/
+	_ = jsonResults
+	// fmt.Println(string(jsonResults))
 	fmt.Println(len(results))
 	fmt.Println(avg(results))
 }
 
+func startContainers(parallelCount int) error {
+	for i := 0; i < parallelCount; i++ {
+		// create parallelCount app container
+		cmd := exec.Command(runc, "run", "-d", "--bundle", fmt.Sprintf(appContainerBase, i), fmt.Sprintf(appContainerName, i))
+		err := cmd.Run()
+		if err != nil {
+			return err
+		}
+	}
+	return nil
+}
+
+func removeContainers(parallelCount int) error {
+	for i := 0; i < parallelCount; i++ {
+		// delete parallelCount app container
+	deleteApp:
+		cmd := exec.Command(runc, "delete", "-f", fmt.Sprintf(appContainerName, i))
+		err := cmd.Run()
+		if err != nil {
+			goto deleteApp
+		}
+	}
+	return nil
+}
+
 func benchmark(stop chan struct{}, resultsChan chan []int64, count int) {
-	runtime.LockOSThread()
-	defer runtime.UnlockOSThread()
 	results := []int64{}
-	socketName := fmt.Sprintf(socketPath, count)
-	newContainerName := fmt.Sprintf(containerName, count)
-	newContainerBase := fmt.Sprintf(containerBase, count)
+	socketName := fmt.Sprintf(appSocketPath, count)            // .base/spin0|1|2/rootfs/fork.sock
+	thisContainerName := fmt.Sprintf(appContainerName, count)  // app0, app1, ...
+	thisZygoteContainer := fmt.Sprintf(zygoteContainerName, 0) // only support zygote0
 	for {
 		select {
 		case <-stop:
@@ -316,7 +340,7 @@ func benchmark(stop chan struct{}, resultsChan chan []int64, count int) {
 			return
 		default:
 		}
-		result, err := routine(count, socketName, newContainerName, newContainerBase)
+		result, err := routine(count, socketName, thisContainerName, thisZygoteContainer)
 		if err != nil {
 			panic(err)
 		}
@@ -334,7 +358,7 @@ func makeChannels(parallelCount int) (stopChanArr []chan struct{}, resultsChanAr
 	return stopChanArr, resultsChanArr
 }
 
-func routine(count int, socketName string, newContainerName string, newContainerBase string) (int64, error) {
+func routine(count int, socketName string, newContainerName string, _ string) (int64, error) {
 
 	// 0. delete the container, delete the socket file
 	// socketName := fmt.Sprintf(socketPath, count)
@@ -367,18 +391,23 @@ func initEnviron(parallelCount int) error {
 		runc = runcPath
 	}
 	for i := 0; i < parallelCount; i++ {
-		rootfsString := fmt.Sprintf(rootfs, i)
-		configJSONPathString := fmt.Sprintf(configJSONPath, i)
-		os.MkdirAll(rootfsString, os.ModePerm)
-		f, err := os.Create(configJSONPathString)
-		defer f.Close()
+		config := fmt.Sprintf(configJSONPath, i)
+		err := ioutil.WriteFile(config, []byte(appConfigJSON), 0644)
 		if err != nil {
 			return err
 		}
-		_, err = f.WriteString(configJSON)
-		if err != nil {
-			return err
-		}
+	}
+	return nil
+}
+
+func killProcess(pid int) error {
+	p, err := os.FindProcess(pid)
+	if err != nil {
+		return err
+	}
+	err = p.Kill()
+	if err != nil {
+		return err
 	}
 	return nil
 }
