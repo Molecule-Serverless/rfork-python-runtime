@@ -19,7 +19,6 @@ if os.environ.get('IMPORT_EXTRA_LIBS_IN_ZYGOTE') is not None:
     import numpy
 
 if os.environ.get('IMPORT_EXTRA_LIBS_IN_APP') is not None:
-    global import_extra_libs_in_app
     import_extra_libs_in_app = True
 
 file_sock_path = 'fork.sock'
