@@ -1,4 +1,4 @@
-FROM val01:5000/python-base-image:dev-base
+FROM val01:5000/python-base-image:dev-base-numpy-boto3
 
 COPY setup.py /
 

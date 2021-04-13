@@ -13,6 +13,15 @@ import tornado.web
 import tornado.httpserver
 import tornado.netutil
 
+import_extra_libs_in_app = False
+
+if os.environ.get('IMPORT_EXTRA_LIBS_IN_ZYGOTE') is not None:
+    import numpy
+
+if os.environ.get('IMPORT_EXTRA_LIBS_IN_APP') is not None:
+    global import_extra_libs_in_app
+    import_extra_libs_in_app = True
+
 file_sock_path = 'fork.sock'
 file_sock = None
 
@@ -109,6 +118,9 @@ def start_fork_server():
                 # the child process
                 file_sock.close()
                 file_sock = None
+
+                if import_extra_libs_in_app:
+                    import numpy
 
                 file_sock_path = 'fork.sock' # + '.' + str(os.getpid()) # + '.' + str(uuid.uuid4())
                 file_sock = tornado.netutil.bind_unix_socket(file_sock_path)

@@ -12,6 +12,9 @@ import tornado.web
 import tornado.httpserver
 import tornado.netutil
 
+if os.environ.get('IMPORT_EXTRA_LIBS') is not None:
+    import numpy
+
 file_sock_path = 'fork.sock'
 file_sock = None
 
