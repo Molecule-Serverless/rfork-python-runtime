@@ -29,3 +29,13 @@ sudo ${RUNC} list # will show the "python-test" container
 sudo -E RUNC=${RUNC} sh ./scripts/fork_zygote_container.sh
 sudo ${RUNC} list # will show the "new-python-test" container
 ```
+
+## Scripts
+* How to run a test
+``` bash
+cd scripts
+./kill_containers.sh
+./template_build.sh
+./zygote_build.sh
+./run_fork.sh
+```

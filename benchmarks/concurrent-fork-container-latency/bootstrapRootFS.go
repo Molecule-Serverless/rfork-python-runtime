@@ -17,7 +17,7 @@ var zygoteConfigJSON = `{
 			"gid": 0
 		},
 		"args": [
-			"python", "daemon.py"
+			"python", "env/daemon.py"
 		],
 		"env": [
 			"PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
@@ -256,7 +256,8 @@ var spinConfigJSON = `{
 		],
 		"env": [
 			"PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
-			"TERM=xterm"
+			"TERM=xterm",
+			"FUNC_NAME=image_resize"
 		],
 		"cwd": "/",
 		"capabilities": {
@@ -481,12 +482,12 @@ var spinConfigJSON = `{
 }
 `
 
-var zygoteRootfs = ".base/container%d/rootfs"
-var zygoteConfigJSONPath = ".base/container%d/config.json"
+var zygoteRootfs = "/home/liu/.base/container%d/rootfs"
+var zygoteConfigJSONPath = "/home/liu/.base/container%d/config.json"
 var zygoteBaseImage = "python-base-image"
 
-var spinRootfs = ".base/spin%d/rootfs"
-var spinConfigJSONPath = ".base/spin%d/config.json"
+var spinRootfs = "/home/liu/.base/spin%d/rootfs"
+var spinConfigJSONPath = "/home/liu/.base/spin%d/config.json"
 var spinBaseImage = "spin-base-image"
 
 var zygoteContainerID string

@@ -5,3 +5,4 @@
 !.base/spec/rootfs/.gitkeep
 
 spin
+bootstrapRootFS

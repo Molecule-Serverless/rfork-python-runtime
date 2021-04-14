@@ -7,6 +7,11 @@ import uuid
 import socket
 import array
 
+import importlib.util
+import sys
+import base64 
+
+
 import tornado
 import tornado.ioloop
 import tornado.web
@@ -16,16 +21,9 @@ import tornado.netutil
 file_sock_path = 'fork.sock'
 file_sock = None
 
-# copied from https://docs.python.org/3/library/socket.html#socket.socket.recvmsg
-def recv_fds(sock, msglen, maxfds):
-    fds = array.array("i")   # Array of ints
-    msg, ancdata, flags, addr = sock.recvmsg(msglen, socket.CMSG_LEN(maxfds * fds.itemsize))
-    for cmsg_level, cmsg_type, cmsg_data in ancdata:
-        if (cmsg_level == socket.SOL_SOCKET and cmsg_type == socket.SCM_RIGHTS):
-            # Append data, ignoring any truncated integers at the end.
-            fds.frombytes(cmsg_data[:len(cmsg_data) - (len(cmsg_data) % fds.itemsize)])
-    return msg, list(fds)
-
+# global variables:
+func = None
+funcName = None
 def start_app_server():
     # print("daemon.py: start app server on fd: %d" % file_sock.fileno())
 
@@ -52,6 +50,36 @@ def start_app_server():
     server.add_socket(file_sock)
     tornado.ioloop.IOLoop.instance().start()
     server.start()
+    
+def start_faas_server():
+    global func
+    sys.path.append("/code")
+    # load code
+    # funcName = os.environ['FUNC_NAME']
+    if func is None:
+        func = importlib.import_module('index')         
+    print("output is")
+    f = open("/code/test.jpg", 'rb')
+    print(func.handler({'img': LoadTestImage(), 'height': 200, 'width': 200}))
+    return
+
+def LoadTestImage():
+    f = open("/code/test.jpg", 'rb')
+    return str(base64.b64encode(f.read()), encoding='ascii')
+
+def Invoke():
+    return
+
+# copied from https://docs.python.org/3/library/socket.html#socket.socket.recvmsg
+def recv_fds(sock, msglen, maxfds):
+    fds = array.array("i")   # Array of ints
+    msg, ancdata, flags, addr = sock.recvmsg(msglen, socket.CMSG_LEN(maxfds * fds.itemsize))
+    for cmsg_level, cmsg_type, cmsg_data in ancdata:
+        if (cmsg_level == socket.SOL_SOCKET and cmsg_type == socket.SCM_RIGHTS):
+            # Append data, ignoring any truncated integers at the end.
+            fds.frombytes(cmsg_data[:len(cmsg_data) - (len(cmsg_data) % fds.itemsize)])
+    return msg, list(fds)
+    
 
 def start_fork_server():
     global file_sock
@@ -114,7 +142,8 @@ def start_fork_server():
                 file_sock_path = 'fork.sock' + '.' + str(os.getpid()) # + '.' + str(uuid.uuid4())
                 file_sock = tornado.netutil.bind_unix_socket(file_sock_path)
                 client.close()
-                start_app_server()
+                start_faas_server()
+                exit()
 
 
 def main():
