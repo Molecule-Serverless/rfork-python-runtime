@@ -9,7 +9,7 @@ USAGE="python3 test_baseline.py [test], test can be \"baseline\" or \"fork\"\nIf
 def test_fork_start():
     latencies = []
     ENDPOINT_BUNDLE="%s/.base/spin0/rootfs" %os.environ['HOME']
-    COMMAND_FORK = "../run_fork.sh"
+    COMMAND_FORK = "./run_fork.sh"
 
     for i in range(TEST_TIMES):
         exec_ = os.popen(COMMAND_FORK)
@@ -32,7 +32,7 @@ def test_fork_start():
 def test_baseline_start():
     # PWD must be in scripts/tests
     latencies = []
-    COMMAND_RUN = "../run_baseline.sh"
+    COMMAND_RUN = "./run_baseline.sh"
 
     for i in range(TEST_TIMES):
         exec_ = os.popen(COMMAND_RUN)

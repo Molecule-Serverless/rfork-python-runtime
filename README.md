@@ -1,6 +1,19 @@
 # README
 
 ## Scripts
+* Download runc 
+``` bash
+git clone git@ipads.se.sjtu.edu.cn:xcontainer/runc.git
+git checkout c12a5deed022ada93f499cc90fed54a23f0eb4d9
+make static
+
+# change the config of the runc path
+cd scripts
+vim config
+# modify RUNC to your path of the compiled runc
+
+```
+
 * Prepare environment
 ``` bash
 cd scripts
@@ -19,7 +32,7 @@ cd scripts
 ```
 * run tests
 ``` bash
-cd scripts/tests
+cd scripts
 # usage: python3 test_baseline.py [test]
 # test can be baseline or fork
 # if no test is specified, it runs all tests by default

@@ -1,4 +1,5 @@
 #!/bin/bash
+source ./config
 RUNNING_CONTAINERS=`expr \`sudo runc list | grep -c ""\` - 1`
 # if no container is running, run the template and the endpoint container
 if [[ $RUNNING_CONTAINERS = 0 ]]; then
@@ -11,4 +12,4 @@ if [[ $RUNNING_CONTAINERS = 0 ]]; then
     echo "ready to fork..."
     sleep 1s # wait for containers to complete startup
 fi
-sudo ~/molecule/runc/runc fork2container --zygote python-test --target app-test 
+sudo $RUNC fork2container --zygote python-test --target app-test 
