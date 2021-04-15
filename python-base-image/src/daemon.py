@@ -55,12 +55,17 @@ def start_faas_server():
     global func
     sys.path.append("/code")
     # load code
-    # funcName = os.environ['FUNC_NAME']
     if func is None:
-        func = importlib.import_module('index')         
-    print("output is")
+        func = importlib.import_module('index')      
+    
+    ####### hard code start ######
+    # invoke the function   
+    # print("image_resize output: ")
     f = open("/code/test.jpg", 'rb')
-    print(func.handler({'img': LoadTestImage(), 'height': 200, 'width': 200}))
+    output = func.handler({'img': LoadTestImage(), 'height': 200, 'width': 200})
+    # print(output)
+    ####### hard code end #######
+
     return
 
 def LoadTestImage():
@@ -139,8 +144,8 @@ def start_fork_server():
                 file_sock.close()
                 file_sock = None
 
-                file_sock_path = 'fork.sock' + '.' + str(os.getpid()) # + '.' + str(uuid.uuid4())
-                file_sock = tornado.netutil.bind_unix_socket(file_sock_path)
+                # file_sock_path = 'fork.sock' + '.' + str(os.getpid()) # + '.' + str(uuid.uuid4())
+                # file_sock = tornado.netutil.bind_unix_socket(file_sock_path)
                 client.close()
                 start_faas_server()
                 exit()

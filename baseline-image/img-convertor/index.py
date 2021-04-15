@@ -9,17 +9,11 @@ def handler(event):
     buffer = BytesIO()
     img.save(buffer, 'JPEG')
     buffer.seek(0)
-
-    output = {'img': str(base64.b64encode(buffer.read()), encoding='ascii'), 
+    
+    return {'img': str(base64.b64encode(buffer.read()), encoding='ascii'), 
             'startTime': startTime, 
             'retTime': int(round(time.time() * 1000)), 
             'invokeTime': startTime}
-    
-    # Write log
-    logf = open("log.txt", "w")
-    logf.write(str(output))
-
-    return output
 
 if __name__ == "__main__":
     f = open('test.jpg', 'rb')
