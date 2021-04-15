@@ -9,4 +9,4 @@ if [[ ! -f "$BUNDLE_PATH/config.json" ]]; then
     echo "Cannot find config.json. Paste a new one"
     cp config.json $BUNDLE_PATH
 fi
-sudo docker export `docker create baseline-image` | sudo tar -C ~/.base/baseline/rootfs -xf -
+sudo docker export `docker create baseline-image` | sudo tar -C $BUNDLE_PATH/rootfs -xf -
