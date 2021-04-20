@@ -33,7 +33,7 @@ def main():
     i=0
     while True:
         time.sleep(1)
-        i = i+1
+        #i = i+1
 
 
 

@@ -2,13 +2,14 @@ import os
 import re
 import sys
 import time
-TEST_TIMES = 100
+TEST_TIMES = 200
 TEST_INVOKETIME_PATTERN = {"baseline": "start run container", "fork": "start fork"}
 USAGE="python3 test_baseline.py [test], test can be \"baseline\" or \"fork\"\nIf no test is specified, it runs all tests by default"
 
 def test_fork_start():
     latencies = []
-    ENDPOINT_BUNDLE="%s/.base/spin0/rootfs" %os.environ['HOME']
+    all_latencies = []
+    ENDPOINT_BUNDLE="/run/.base/spin0/rootfs" #%os.environ['HOME']
     COMMAND_FORK = "./run_fork.sh"
     COMMAND_LOOP_RUN = "./run_baseline_loop.sh %d"
 
@@ -17,7 +18,7 @@ def test_fork_start():
         output_lines = exec_.read().strip().split('\n') # only contains parent output
 
         # Wait for the child to write the timestamp into the log
-        time.sleep(0.1)
+        time.sleep(1)
 
         output_line_child = open(ENDPOINT_BUNDLE + "/log.txt", "r").read()
         output_lines.append(output_line_child)
@@ -26,9 +27,11 @@ def test_fork_start():
         # print(invokeTime, startTime)
         start_latency = startTime - invokeTime
         latencies.append(start_latency)
+        all_latencies.append(start_latency)
         format_result(latencies, "fork")
         os.system(COMMAND_LOOP_RUN % i)
         latencies = []
+        format_scale_result(all_latencies, "fork")
     # print(latencies)
 
 # pre-requisite: finish the building of the baseline container bundle, i.e., ~/.base/baseline/rootfs and ~/.base/baseline/config.json
@@ -98,6 +101,16 @@ def format_result(latencies, test):
     _99pcLatency = latencies[int(request_num * 0.99) - 1]
     print("latency (ms):\navg\t50%\t75%\t90%\t95%\t99%")
     print("%.2f\t%d\t%d\t%d\t%d\t%d" %(averageLatency,_50pcLatency,_75pcLatency,_90pcLatency,_95pcLatency,_99pcLatency))
+
+def format_scale_result(latencies, test):
+    request_num = len(latencies)
+    print("=============== %s Scale result ===============" %test)
+    latencies.sort()
+    latency_sum = 0
+    i = 0
+    for latency in latencies:
+    	print("%d\t%d" %(i, latency))
+    	i+=1
 
 
 if __name__ == '__main__':
