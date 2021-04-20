@@ -1,5 +1,5 @@
 #!/bin/bash
-BUNDLE_PATH=~/.base/baseline
+BUNDLE_PATH=/run/.base/baseline
 
 cd ../baseline-image 
 docker build -t baseline-image .

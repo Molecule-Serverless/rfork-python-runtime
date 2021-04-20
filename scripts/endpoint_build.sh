@@ -1,5 +1,5 @@
 #!/bin/bash
-BUNDLE_PATH=~/.base/spin0
+BUNDLE_PATH=/run/.base/spin0
 
 cd ../spin-base-image 
 gcc spin.c -o spin -O2 -static && docker build -t spin-base-image .

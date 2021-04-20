@@ -8,7 +8,8 @@ USAGE="python3 test_baseline.py [test], test can be \"baseline\" or \"fork\"\nIf
 
 def test_fork_start():
     latencies = []
-    ENDPOINT_BUNDLE="%s/.base/spin0/rootfs" %os.environ['HOME']
+    #ENDPOINT_BUNDLE="%.base/spin0/rootfs" %os.environ['HOME']
+    ENDPOINT_BUNDLE="/run/.base/spin0/rootfs"
     COMMAND_FORK = "./run_fork.sh"
 
     for i in range(TEST_TIMES):
@@ -16,7 +17,7 @@ def test_fork_start():
         output_lines = exec_.read().strip().split('\n') # only contains parent output
 
         # Wait for the child to write the timestamp into the log
-        time.sleep(0.05)
+        time.sleep(1)
 
         output_line_child = open(ENDPOINT_BUNDLE + "/log.txt", "r").read()
         output_lines.append(output_line_child)
