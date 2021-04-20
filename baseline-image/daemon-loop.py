@@ -30,9 +30,10 @@ def LoadTestImage():
 def main():
     start_faas_server()
 
-    #i=0
-    #while True:
-    #    i = i+1
+    i=0
+    while True:
+        time.sleep(1)
+        i = i+1
 
 
 
