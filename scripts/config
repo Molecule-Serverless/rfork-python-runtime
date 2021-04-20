@@ -1,1 +1,1 @@
-RUNC=~/devlop/serverless/molecule-faas/runc/runc
+RUNC=/home/dd/runc/runc

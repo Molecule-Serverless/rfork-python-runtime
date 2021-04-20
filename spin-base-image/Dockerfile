@@ -1,5 +1,7 @@
 # FROM val01:5000/python-base-image:dev-base
-FROM ddnirvana/python-base-image:dev-base-3.6
+FROM ddnirvana/python-base-image:dev-base-3.6_arm64
 
 COPY img-convertor/ /code
 COPY spin /
+
+RUN pip install -U Pillow

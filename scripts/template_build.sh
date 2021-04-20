@@ -1,5 +1,5 @@
 #!/bin/bash
-BUNDLE_PATH=~/.base/container0
+BUNDLE_PATH=/run/.base/container0
 
 cd ../python-base-image 
 docker build -t python-base-image .
