@@ -10,13 +10,14 @@ def test_fork_start():
     latencies = []
     ENDPOINT_BUNDLE="%s/.base/spin0/rootfs" %os.environ['HOME']
     COMMAND_FORK = "./run_fork.sh"
+    COMMAND_LOOP_RUN = "./run_baseline_loop.sh %d"
 
     for i in range(TEST_TIMES):
         exec_ = os.popen(COMMAND_FORK)
         output_lines = exec_.read().strip().split('\n') # only contains parent output
 
         # Wait for the child to write the timestamp into the log
-        time.sleep(0.05)
+        time.sleep(0.1)
 
         output_line_child = open(ENDPOINT_BUNDLE + "/log.txt", "r").read()
         output_lines.append(output_line_child)
@@ -25,7 +26,9 @@ def test_fork_start():
         # print(invokeTime, startTime)
         start_latency = startTime - invokeTime
         latencies.append(start_latency)
-    format_result(latencies, "fork")
+        format_result(latencies, "fork")
+        os.system(COMMAND_LOOP_RUN % i)
+        latencies = []
     # print(latencies)
 
 # pre-requisite: finish the building of the baseline container bundle, i.e., ~/.base/baseline/rootfs and ~/.base/baseline/config.json
