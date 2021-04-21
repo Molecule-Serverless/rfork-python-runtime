@@ -1,0 +1,2139 @@
+run python-test complete
+run app-test complete
+ready to fork...
+[liu@, , 1619014536323,196876] start fork
+[liu@, , 1619014536323,218890] before find target container id
+[liu@, , 1619014536323,227772] before load factory
+[liu@, , 1619014536323,298894] before create new factory
+[liu@, , 1619014536323,309238] after find criuPath
+[liu@, , 1619014536323,317651] after utidmapPath
+[liu@, , 1619014536323,323081] after gtidmapPath
+[liu@, , 1619014536323,548674] after mkdir for root
+[liu@, , 1619014536323,590162] after iterate all option for l
+[liu@, , 1619014536323,596421] load factory finish
+[liu@, , 1619014536325,334008] find target container id
+[liu@, , 1619014536325,349402] before load factory
+[liu@, , 1619014536325,381301] before create new factory
+[liu@, , 1619014536325,387789] after find criuPath
+[liu@, , 1619014536325,393464] after utidmapPath
+[liu@, , 1619014536325,398875] after gtidmapPath
+[liu@, , 1619014536325,407356] after mkdir for root
+[liu@, , 1619014536325,413835] after iterate all option for l
+[liu@, , 1619014536325,419489] load factory finish
+[liu@, , 1619014536326,718358] find containers by ids
+
+3533693 5071643 11819184 14058025 
+[liu@, , 1619014536337,280735] fork complete
+Memory Usage Fork Begin
+RSS: MB
+19.1211
+18.4688
+PSS: MB
+13.248
+12.5957
+Detail Logs Begin:
+PID: 33367
+Total:
+0.0302505 GB
+RSS:
+19.1211 MB
+PSS:
+13.248 MB
+Private_Dirty
+4.28125 MB
+PID: 33408
+Total:
+0.0464745 GB
+RSS:
+18.4688 MB
+PSS:
+12.5957 MB
+Private_Dirty
+6.08594 MB
+Memory Usage Fork End
+[liu@, , 1619014539161,129818] start fork
+[liu@, , 1619014539161,156293] before find target container id
+[liu@, , 1619014539161,180254] before load factory
+[liu@, , 1619014539161,265869] before create new factory
+[liu@, , 1619014539161,279292] after find criuPath
+[liu@, , 1619014539161,290099] after utidmapPath
+[liu@, , 1619014539161,297124] after gtidmapPath
+[liu@, , 1619014539161,309858] after mkdir for root
+[liu@, , 1619014539161,353677] after iterate all option for l
+[liu@, , 1619014539161,361389] load factory finish
+[liu@, , 1619014539163,249215] find target container id
+[liu@, , 1619014539163,266548] before load factory
+[liu@, , 1619014539163,302924] before create new factory
+[liu@, , 1619014539163,311224] after find criuPath
+[liu@, , 1619014539163,318124] after utidmapPath
+[liu@, , 1619014539163,324915] after gtidmapPath
+[liu@, , 1619014539163,335617] after mkdir for root
+[liu@, , 1619014539163,354148] after iterate all option for l
+[liu@, , 1619014539163,361390] load factory finish
+[liu@, , 1619014539164,633954] find containers by ids
+
+3515657 3609320 10000129 11555960 
+[liu@, , 1619014539172,713183] fork complete
+Memory Usage Fork Begin
+RSS: MB
+19.1211
+18.4688
+18.4688
+PSS: MB
+11.2227
+10.2695
+10.25
+Detail Logs Begin:
+PID: 33367
+Total:
+0.0302505 GB
+RSS:
+19.1211 MB
+PSS:
+11.2227 MB
+Private_Dirty
+4.27344 MB
+PID: 33408
+Total:
+0.0464745 GB
+RSS:
+18.4688 MB
+PSS:
+10.2695 MB
+Private_Dirty
+6.11719 MB
+PID: 33509
+Total:
+0.0464745 GB
+RSS:
+18.4688 MB
+PSS:
+10.25 MB
+Private_Dirty
+6.07812 MB
+Memory Usage Fork End
+[liu@, , 1619014542232,878268] start fork
+[liu@, , 1619014542232,901556] before find target container id
+[liu@, , 1619014542232,910454] before load factory
+[liu@, , 1619014542232,977258] before create new factory
+[liu@, , 1619014542232,987561] after find criuPath
+[liu@, , 1619014542232,995766] after utidmapPath
+[liu@, , 1619014542233,001146] after gtidmapPath
+[liu@, , 1619014542233,011320] after mkdir for root
+[liu@, , 1619014542233,047542] after iterate all option for l
+[liu@, , 1619014542233,053246] load factory finish
+[liu@, , 1619014542234,878505] find target container id
+[liu@, , 1619014542234,893681] before load factory
+[liu@, , 1619014542234,924783] before create new factory
+[liu@, , 1619014542234,931027] after find criuPath
+[liu@, , 1619014542234,936355] after utidmapPath
+[liu@, , 1619014542234,941509] after gtidmapPath
+[liu@, , 1619014542234,950059] after mkdir for root
+[liu@, , 1619014542234,964982] after iterate all option for l
+[liu@, , 1619014542234,970374] load factory finish
+[liu@, , 1619014542236,212244] find containers by ids
+
+3345724 3444830 8934841 11435454 
+[liu@, , 1619014542244,370254] fork complete
+Memory Usage Fork Begin
+RSS: MB
+19.1211
+18.4688
+18.4688
+18.4688
+PSS: MB
+10.3164
+9.24316
+9.24023
+9.22266
+Detail Logs Begin:
+PID: 33367
+Total:
+0.0302505 GB
+RSS:
+19.1211 MB
+PSS:
+10.3164 MB
+Private_Dirty
+4.27344 MB
+PID: 33408
+Total:
+0.0464745 GB
+RSS:
+18.4688 MB
+PSS:
+9.24316 MB
+Private_Dirty
+6.11719 MB
+PID: 33509
+Total:
+0.0464745 GB
+RSS:
+18.4688 MB
+PSS:
+9.24023 MB
+Private_Dirty
+6.11328 MB
+PID: 33639
+Total:
+0.0464745 GB
+RSS:
+18.4688 MB
+PSS:
+9.22266 MB
+Private_Dirty
+6.07812 MB
+Memory Usage Fork End
+[liu@, , 1619014545547,154557] start fork
+[liu@, , 1619014545547,201844] before find target container id
+[liu@, , 1619014545547,214275] before load factory
+[liu@, , 1619014545547,306159] before create new factory
+[liu@, , 1619014545547,320333] after find criuPath
+[liu@, , 1619014545547,331314] after utidmapPath
+[liu@, , 1619014545547,339196] after gtidmapPath
+[liu@, , 1619014545547,352448] after mkdir for root
+[liu@, , 1619014545547,400544] after iterate all option for l
+[liu@, , 1619014545547,408575] load factory finish
+[liu@, , 1619014545551,255808] find target container id
+[liu@, , 1619014545551,274050] before load factory
+[liu@, , 1619014545551,307495] before create new factory
+[liu@, , 1619014545551,313897] after find criuPath
+[liu@, , 1619014545551,319173] after utidmapPath
+[liu@, , 1619014545551,324299] after gtidmapPath
+[liu@, , 1619014545551,332186] after mkdir for root
+[liu@, , 1619014545551,338747] after iterate all option for l
+[liu@, , 1619014545551,343823] load factory finish
+[liu@, , 1619014545552,611247] find containers by ids
+
+5469364 5564995 12158147 14944847 
+[liu@, , 1619014545562,133059] fork complete
+Memory Usage Fork Begin
+RSS: MB
+19.1211
+18.4688
+18.4688
+18.4688
+18.4688
+PSS: MB
+9.62891
+8.5166
+8.51367
+8.51367
+8.49609
+Detail Logs Begin:
+PID: 33367
+Total:
+0.0302505 GB
+RSS:
+19.1211 MB
+PSS:
+9.62891 MB
+Private_Dirty
+4.27344 MB
+PID: 33408
+Total:
+0.0464745 GB
+RSS:
+18.4688 MB
+PSS:
+8.5166 MB
+Private_Dirty
+6.11719 MB
+PID: 33509
+Total:
+0.0464745 GB
+RSS:
+18.4688 MB
+PSS:
+8.51367 MB
+Private_Dirty
+6.11328 MB
+PID: 33639
+Total:
+0.0464745 GB
+RSS:
+18.4688 MB
+PSS:
+8.51367 MB
+Private_Dirty
+6.11328 MB
+PID: 33793
+Total:
+0.0464745 GB
+RSS:
+18.4688 MB
+PSS:
+8.49609 MB
+Private_Dirty
+6.07812 MB
+Memory Usage Fork End
+[liu@, , 1619014549128,029785] start fork
+[liu@, , 1619014549128,052999] before find target container id
+[liu@, , 1619014549128,061995] before load factory
+[liu@, , 1619014549128,132365] before create new factory
+[liu@, , 1619014549128,142710] after find criuPath
+[liu@, , 1619014549128,151063] after utidmapPath
+[liu@, , 1619014549128,168310] after gtidmapPath
+[liu@, , 1619014549128,179981] after mkdir for root
+[liu@, , 1619014549128,218900] after iterate all option for l
+[liu@, , 1619014549128,224889] load factory finish
+[liu@, , 1619014549129,778434] find target container id
+[liu@, , 1619014549129,793560] before load factory
+[liu@, , 1619014549129,824513] before create new factory
+[liu@, , 1619014549129,830823] after find criuPath
+[liu@, , 1619014549129,836098] after utidmapPath
+[liu@, , 1619014549129,841501] after gtidmapPath
+[liu@, , 1619014549129,849877] after mkdir for root
+[liu@, , 1619014549129,864548] after iterate all option for l
+[liu@, , 1619014549129,869999] load factory finish
+[liu@, , 1619014549131,173913] find containers by ids
+
+3156543 3270596 9912844 11248054 
+[liu@, , 1619014549139,300415] fork complete
+Memory Usage Fork Begin
+RSS: MB
+19.1211
+18.4688
+18.4688
+18.4688
+18.4688
+18.4688
+PSS: MB
+9.24707
+8.09277
+8.08984
+8.08984
+8.08984
+8.07227
+Detail Logs Begin:
+PID: 33367
+Total:
+0.0302505 GB
+RSS:
+19.1211 MB
+PSS:
+9.24707 MB
+Private_Dirty
+4.27344 MB
+PID: 33408
+Total:
+0.0464745 GB
+RSS:
+18.4688 MB
+PSS:
+8.09277 MB
+Private_Dirty
+6.11719 MB
+PID: 33509
+Total:
+0.0464745 GB
+RSS:
+18.4688 MB
+PSS:
+8.08984 MB
+Private_Dirty
+6.11328 MB
+PID: 33639
+Total:
+0.0464745 GB
+RSS:
+18.4688 MB
+PSS:
+8.08984 MB
+Private_Dirty
+6.11328 MB
+PID: 33793
+Total:
+0.0464745 GB
+RSS:
+18.4688 MB
+PSS:
+8.08984 MB
+Private_Dirty
+6.11328 MB
+PID: 33984
+Total:
+0.0464745 GB
+RSS:
+18.4688 MB
+PSS:
+8.07227 MB
+Private_Dirty
+6.07812 MB
+Memory Usage Fork End
+[liu@, , 1619014552941,697987] start fork
+[liu@, , 1619014552941,723432] before find target container id
+[liu@, , 1619014552941,733535] before load factory
+[liu@, , 1619014552941,802928] before create new factory
+[liu@, , 1619014552941,813893] after find criuPath
+[liu@, , 1619014552941,822134] after utidmapPath
+[liu@, , 1619014552941,827557] after gtidmapPath
+[liu@, , 1619014552941,837774] after mkdir for root
+[liu@, , 1619014552941,875183] after iterate all option for l
+[liu@, , 1619014552941,880856] load factory finish
+[liu@, , 1619014552943,427585] find target container id
+[liu@, , 1619014552943,441913] before load factory
+[liu@, , 1619014552943,472343] before create new factory
+[liu@, , 1619014552943,478548] after find criuPath
+[liu@, , 1619014552943,483834] after utidmapPath
+[liu@, , 1619014552943,488942] after gtidmapPath
+[liu@, , 1619014552943,496855] after mkdir for root
+[liu@, , 1619014552943,503110] after iterate all option for l
+[liu@, , 1619014552943,508321] load factory finish
+[liu@, , 1619014552944,752720] find containers by ids
+
+3067420 3169245 9849703 12133307 
+[liu@, , 1619014552953,860215] fork complete
+Memory Usage Fork Begin
+RSS: MB
+19.1211
+18.4688
+18.4688
+18.4688
+18.4688
+18.4688
+18.4688
+PSS: MB
+8.98438
+7.80664
+7.80371
+7.80371
+7.80371
+7.80371
+7.78613
+Detail Logs Begin:
+PID: 33367
+Total:
+0.0302505 GB
+RSS:
+19.1211 MB
+PSS:
+8.98438 MB
+Private_Dirty
+4.27344 MB
+PID: 33408
+Total:
+0.0464745 GB
+RSS:
+18.4688 MB
+PSS:
+7.80664 MB
+Private_Dirty
+6.11719 MB
+PID: 33509
+Total:
+0.0464745 GB
+RSS:
+18.4688 MB
+PSS:
+7.80371 MB
+Private_Dirty
+6.11328 MB
+PID: 33639
+Total:
+0.0464745 GB
+RSS:
+18.4688 MB
+PSS:
+7.80371 MB
+Private_Dirty
+6.11328 MB
+PID: 33793
+Total:
+0.0464745 GB
+RSS:
+18.4688 MB
+PSS:
+7.80371 MB
+Private_Dirty
+6.11328 MB
+PID: 33984
+Total:
+0.0464745 GB
+RSS:
+18.4688 MB
+PSS:
+7.80371 MB
+Private_Dirty
+6.11328 MB
+PID: 34206
+Total:
+0.0464745 GB
+RSS:
+18.4688 MB
+PSS:
+7.78613 MB
+Private_Dirty
+6.07812 MB
+Memory Usage Fork End
+[liu@, , 1619014557010,590165] start fork
+[liu@, , 1619014557010,617249] before find target container id
+[liu@, , 1619014557010,626130] before load factory
+[liu@, , 1619014557010,695050] before create new factory
+[liu@, , 1619014557010,705465] after find criuPath
+[liu@, , 1619014557010,713838] after utidmapPath
+[liu@, , 1619014557010,719339] after gtidmapPath
+[liu@, , 1619014557010,729663] after mkdir for root
+[liu@, , 1619014557010,766030] after iterate all option for l
+[liu@, , 1619014557010,771866] load factory finish
+[liu@, , 1619014557012,396791] find target container id
+[liu@, , 1619014557012,412457] before load factory
+[liu@, , 1619014557012,441965] before create new factory
+[liu@, , 1619014557012,447835] after find criuPath
+[liu@, , 1619014557012,453521] after utidmapPath
+[liu@, , 1619014557012,459026] after gtidmapPath
+[liu@, , 1619014557012,467177] after mkdir for root
+[liu@, , 1619014557012,473988] after iterate all option for l
+[liu@, , 1619014557012,479318] load factory finish
+[liu@, , 1619014557013,711810] find containers by ids
+
+3134087 3235649 9820033 11342493 
+[liu@, , 1619014557021,959602] fork complete
+Memory Usage Fork Begin
+RSS: MB
+19.1211
+18.4688
+18.4688
+18.4688
+18.4688
+18.4688
+18.4688
+18.4688
+PSS: MB
+8.7998
+7.6123
+7.60938
+7.60938
+7.60938
+7.60938
+7.60938
+7.5918
+Detail Logs Begin:
+PID: 33367
+Total:
+0.0302505 GB
+RSS:
+19.1211 MB
+PSS:
+8.7998 MB
+Private_Dirty
+4.27344 MB
+PID: 33408
+Total:
+0.0464745 GB
+RSS:
+18.4688 MB
+PSS:
+7.6123 MB
+Private_Dirty
+6.11719 MB
+PID: 33509
+Total:
+0.0464745 GB
+RSS:
+18.4688 MB
+PSS:
+7.60938 MB
+Private_Dirty
+6.11328 MB
+PID: 33639
+Total:
+0.0464745 GB
+RSS:
+18.4688 MB
+PSS:
+7.60938 MB
+Private_Dirty
+6.11328 MB
+PID: 33793
+Total:
+0.0464745 GB
+RSS:
+18.4688 MB
+PSS:
+7.60938 MB
+Private_Dirty
+6.11328 MB
+PID: 33984
+Total:
+0.0464745 GB
+RSS:
+18.4688 MB
+PSS:
+7.60938 MB
+Private_Dirty
+6.11328 MB
+PID: 34206
+Total:
+0.0464745 GB
+RSS:
+18.4688 MB
+PSS:
+7.60938 MB
+Private_Dirty
+6.11328 MB
+PID: 34454
+Total:
+0.0464745 GB
+RSS:
+18.4688 MB
+PSS:
+7.5918 MB
+Private_Dirty
+6.07812 MB
+Memory Usage Fork End
+[liu@, , 1619014561320,139829] start fork
+[liu@, , 1619014561320,178332] before find target container id
+[liu@, , 1619014561320,204494] before load factory
+[liu@, , 1619014561320,303013] before create new factory
+[liu@, , 1619014561320,318610] after find criuPath
+[liu@, , 1619014561320,331200] after utidmapPath
+[liu@, , 1619014561320,339803] after gtidmapPath
+[liu@, , 1619014561320,354618] after mkdir for root
+[liu@, , 1619014561320,405753] after iterate all option for l
+[liu@, , 1619014561320,414519] load factory finish
+[liu@, , 1619014561321,939306] find target container id
+[liu@, , 1619014561321,952857] before load factory
+[liu@, , 1619014561321,982514] before create new factory
+[liu@, , 1619014561321,988931] after find criuPath
+[liu@, , 1619014561321,994607] after utidmapPath
+[liu@, , 1619014561322,000133] after gtidmapPath
+[liu@, , 1619014561322,008710] after mkdir for root
+[liu@, , 1619014561322,015563] after iterate all option for l
+[liu@, , 1619014561322,021217] load factory finish
+[liu@, , 1619014561323,276601] find containers by ids
+
+3149293 3243288 8758102 11320461 
+[liu@, , 1619014561331,510957] fork complete
+Memory Usage Fork Begin
+RSS: MB
+19.1211
+18.4688
+18.4688
+18.4688
+18.4688
+18.4688
+18.4688
+18.4688
+18.4688
+PSS: MB
+8.61621
+7.41992
+7.41699
+7.41699
+7.41699
+7.41699
+7.41699
+7.41699
+7.39941
+Detail Logs Begin:
+PID: 33367
+Total:
+0.0302505 GB
+RSS:
+19.1211 MB
+PSS:
+8.61621 MB
+Private_Dirty
+4.27344 MB
+PID: 33408
+Total:
+0.0464745 GB
+RSS:
+18.4688 MB
+PSS:
+7.41992 MB
+Private_Dirty
+6.11719 MB
+PID: 33509
+Total:
+0.0464745 GB
+RSS:
+18.4688 MB
+PSS:
+7.41699 MB
+Private_Dirty
+6.11328 MB
+PID: 33639
+Total:
+0.0464745 GB
+RSS:
+18.4688 MB
+PSS:
+7.41699 MB
+Private_Dirty
+6.11328 MB
+PID: 33793
+Total:
+0.0464745 GB
+RSS:
+18.4688 MB
+PSS:
+7.41699 MB
+Private_Dirty
+6.11328 MB
+PID: 33984
+Total:
+0.0464745 GB
+RSS:
+18.4688 MB
+PSS:
+7.41699 MB
+Private_Dirty
+6.11328 MB
+PID: 34206
+Total:
+0.0464745 GB
+RSS:
+18.4688 MB
+PSS:
+7.41699 MB
+Private_Dirty
+6.11328 MB
+PID: 34454
+Total:
+0.0464745 GB
+RSS:
+18.4688 MB
+PSS:
+7.41699 MB
+Private_Dirty
+6.11328 MB
+PID: 34736
+Total:
+0.0464745 GB
+RSS:
+18.4688 MB
+PSS:
+7.39941 MB
+Private_Dirty
+6.07812 MB
+Memory Usage Fork End
+[liu@, , 1619014565884,541895] start fork
+[liu@, , 1619014565884,562558] before find target container id
+[liu@, , 1619014565884,571329] before load factory
+[liu@, , 1619014565884,638332] before create new factory
+[liu@, , 1619014565884,648534] after find criuPath
+[liu@, , 1619014565884,656518] after utidmapPath
+[liu@, , 1619014565884,661791] after gtidmapPath
+[liu@, , 1619014565884,671281] after mkdir for root
+[liu@, , 1619014565885,020364] after iterate all option for l
+[liu@, , 1619014565885,026726] load factory finish
+[liu@, , 1619014565886,571288] find target container id
+[liu@, , 1619014565886,586026] before load factory
+[liu@, , 1619014565886,615199] before create new factory
+[liu@, , 1619014565886,621216] after find criuPath
+[liu@, , 1619014565886,626506] after utidmapPath
+[liu@, , 1619014565886,631651] after gtidmapPath
+[liu@, , 1619014565886,640984] after mkdir for root
+[liu@, , 1619014565886,647595] after iterate all option for l
+[liu@, , 1619014565886,652885] load factory finish
+[liu@, , 1619014565887,864578] find containers by ids
+
+3334742 3432350 8967447 10673310 
+[liu@, , 1619014565895,244860] fork complete
+Memory Usage Fork Begin
+RSS: MB
+19.1211
+18.4688
+18.4688
+18.4688
+18.4688
+18.4688
+18.4688
+18.4688
+18.4688
+18.4688
+PSS: MB
+8.48633
+7.27344
+7.27051
+7.27051
+7.27051
+7.27051
+7.27051
+7.27051
+7.27051
+7.25293
+Detail Logs Begin:
+PID: 33367
+Total:
+0.0302505 GB
+RSS:
+19.1211 MB
+PSS:
+8.48633 MB
+Private_Dirty
+4.27344 MB
+PID: 33408
+Total:
+0.0464745 GB
+RSS:
+18.4688 MB
+PSS:
+7.27344 MB
+Private_Dirty
+6.11719 MB
+PID: 33509
+Total:
+0.0464745 GB
+RSS:
+18.4688 MB
+PSS:
+7.27051 MB
+Private_Dirty
+6.11328 MB
+PID: 33639
+Total:
+0.0464745 GB
+RSS:
+18.4688 MB
+PSS:
+7.27051 MB
+Private_Dirty
+6.11328 MB
+PID: 33793
+Total:
+0.0464745 GB
+RSS:
+18.4688 MB
+PSS:
+7.27051 MB
+Private_Dirty
+6.11328 MB
+PID: 33984
+Total:
+0.0464745 GB
+RSS:
+18.4688 MB
+PSS:
+7.27051 MB
+Private_Dirty
+6.11328 MB
+PID: 34206
+Total:
+0.0464745 GB
+RSS:
+18.4688 MB
+PSS:
+7.27051 MB
+Private_Dirty
+6.11328 MB
+PID: 34454
+Total:
+0.0464745 GB
+RSS:
+18.4688 MB
+PSS:
+7.27051 MB
+Private_Dirty
+6.11328 MB
+PID: 34736
+Total:
+0.0464745 GB
+RSS:
+18.4688 MB
+PSS:
+7.27051 MB
+Private_Dirty
+6.11328 MB
+PID: 35055
+Total:
+0.0464745 GB
+RSS:
+18.4688 MB
+PSS:
+7.25293 MB
+Private_Dirty
+6.07812 MB
+Memory Usage Fork End
+[liu@, , 1619014570685,776685] start fork
+[liu@, , 1619014570685,804821] before find target container id
+[liu@, , 1619014570685,813483] before load factory
+[liu@, , 1619014570685,881519] before create new factory
+[liu@, , 1619014570685,891899] after find criuPath
+[liu@, , 1619014570685,900266] after utidmapPath
+[liu@, , 1619014570685,905789] after gtidmapPath
+[liu@, , 1619014570685,915769] after mkdir for root
+[liu@, , 1619014570685,954800] after iterate all option for l
+[liu@, , 1619014570685,960618] load factory finish
+[liu@, , 1619014570687,528597] find target container id
+[liu@, , 1619014570687,543143] before load factory
+[liu@, , 1619014570687,572986] before create new factory
+[liu@, , 1619014570687,578826] after find criuPath
+[liu@, , 1619014570687,584151] after utidmapPath
+[liu@, , 1619014570687,589334] after gtidmapPath
+[liu@, , 1619014570687,597446] after mkdir for root
+[liu@, , 1619014570687,603910] after iterate all option for l
+[liu@, , 1619014570687,609234] load factory finish
+[liu@, , 1619014570688,846793] find containers by ids
+
+3082962 3185537 9851376 12760147 
+[liu@, , 1619014570698,573093] fork complete
+Memory Usage Fork Begin
+RSS: MB
+19.1211
+18.4688
+18.4688
+18.4688
+18.4688
+18.4688
+18.4688
+18.4688
+18.4688
+18.4688
+18.4688
+PSS: MB
+8.39258
+7.17383
+7.1709
+7.1709
+7.1709
+7.1709
+7.1709
+7.1709
+7.1709
+7.1709
+7.15332
+Detail Logs Begin:
+PID: 33367
+Total:
+0.0302505 GB
+RSS:
+19.1211 MB
+PSS:
+8.39258 MB
+Private_Dirty
+4.27344 MB
+PID: 33408
+Total:
+0.0464745 GB
+RSS:
+18.4688 MB
+PSS:
+7.17383 MB
+Private_Dirty
+6.11719 MB
+PID: 33509
+Total:
+0.0464745 GB
+RSS:
+18.4688 MB
+PSS:
+7.1709 MB
+Private_Dirty
+6.11328 MB
+PID: 33639
+Total:
+0.0464745 GB
+RSS:
+18.4688 MB
+PSS:
+7.1709 MB
+Private_Dirty
+6.11328 MB
+PID: 33793
+Total:
+0.0464745 GB
+RSS:
+18.4688 MB
+PSS:
+7.1709 MB
+Private_Dirty
+6.11328 MB
+PID: 33984
+Total:
+0.0464745 GB
+RSS:
+18.4688 MB
+PSS:
+7.1709 MB
+Private_Dirty
+6.11328 MB
+PID: 34206
+Total:
+0.0464745 GB
+RSS:
+18.4688 MB
+PSS:
+7.1709 MB
+Private_Dirty
+6.11328 MB
+PID: 34454
+Total:
+0.0464745 GB
+RSS:
+18.4688 MB
+PSS:
+7.1709 MB
+Private_Dirty
+6.11328 MB
+PID: 34736
+Total:
+0.0464745 GB
+RSS:
+18.4688 MB
+PSS:
+7.1709 MB
+Private_Dirty
+6.11328 MB
+PID: 35055
+Total:
+0.0464745 GB
+RSS:
+18.4688 MB
+PSS:
+7.1709 MB
+Private_Dirty
+6.11328 MB
+PID: 35398
+Total:
+0.0464745 GB
+RSS:
+18.4688 MB
+PSS:
+7.15332 MB
+Private_Dirty
+6.07812 MB
+Memory Usage Fork End
+[liu@, , 1619014575754,782711] start fork
+[liu@, , 1619014575754,811316] before find target container id
+[liu@, , 1619014575754,822791] before load factory
+[liu@, , 1619014575754,898401] before create new factory
+[liu@, , 1619014575754,910520] after find criuPath
+[liu@, , 1619014575754,920388] after utidmapPath
+[liu@, , 1619014575754,926919] after gtidmapPath
+[liu@, , 1619014575754,938721] after mkdir for root
+[liu@, , 1619014575754,981324] after iterate all option for l
+[liu@, , 1619014575754,988231] load factory finish
+[liu@, , 1619014575756,729723] find target container id
+[liu@, , 1619014575756,746540] before load factory
+[liu@, , 1619014575756,780942] before create new factory
+[liu@, , 1619014575756,788434] after find criuPath
+[liu@, , 1619014575756,794767] after utidmapPath
+[liu@, , 1619014575756,800917] after gtidmapPath
+[liu@, , 1619014575756,810280] after mkdir for root
+[liu@, , 1619014575756,817589] after iterate all option for l
+[liu@, , 1619014575756,823772] load factory finish
+[liu@, , 1619014575758,077830] find containers by ids
+
+3306218 3406229 10112881 12282701 
+[liu@, , 1619014575767,091185] fork complete
+Memory Usage Fork Begin
+RSS: MB
+19.1211
+18.4688
+18.4688
+18.4688
+18.4688
+18.4688
+18.4688
+18.4688
+18.4688
+18.4688
+18.4688
+18.4688
+PSS: MB
+8.29492
+7.07324
+7.07031
+7.07031
+7.07031
+7.07031
+7.07031
+7.07031
+7.07031
+7.07031
+7.07031
+7.05273
+Detail Logs Begin:
+PID: 33367
+Total:
+0.0302505 GB
+RSS:
+19.1211 MB
+PSS:
+8.29492 MB
+Private_Dirty
+4.27344 MB
+PID: 33408
+Total:
+0.0464745 GB
+RSS:
+18.4688 MB
+PSS:
+7.07324 MB
+Private_Dirty
+6.11719 MB
+PID: 33509
+Total:
+0.0464745 GB
+RSS:
+18.4688 MB
+PSS:
+7.07031 MB
+Private_Dirty
+6.11328 MB
+PID: 33639
+Total:
+0.0464745 GB
+RSS:
+18.4688 MB
+PSS:
+7.07031 MB
+Private_Dirty
+6.11328 MB
+PID: 33793
+Total:
+0.0464745 GB
+RSS:
+18.4688 MB
+PSS:
+7.07031 MB
+Private_Dirty
+6.11328 MB
+PID: 33984
+Total:
+0.0464745 GB
+RSS:
+18.4688 MB
+PSS:
+7.07031 MB
+Private_Dirty
+6.11328 MB
+PID: 34206
+Total:
+0.0464745 GB
+RSS:
+18.4688 MB
+PSS:
+7.07031 MB
+Private_Dirty
+6.11328 MB
+PID: 34454
+Total:
+0.0464745 GB
+RSS:
+18.4688 MB
+PSS:
+7.07031 MB
+Private_Dirty
+6.11328 MB
+PID: 34736
+Total:
+0.0464745 GB
+RSS:
+18.4688 MB
+PSS:
+7.07031 MB
+Private_Dirty
+6.11328 MB
+PID: 35055
+Total:
+0.0464745 GB
+RSS:
+18.4688 MB
+PSS:
+7.07031 MB
+Private_Dirty
+6.11328 MB
+PID: 35398
+Total:
+0.0464745 GB
+RSS:
+18.4688 MB
+PSS:
+7.07031 MB
+Private_Dirty
+6.11328 MB
+PID: 35772
+Total:
+0.0464745 GB
+RSS:
+18.4688 MB
+PSS:
+7.05273 MB
+Private_Dirty
+6.07812 MB
+Memory Usage Fork End
+[liu@, , 1619014581109,076254] start fork
+[liu@, , 1619014581109,105072] before find target container id
+[liu@, , 1619014581109,117965] before load factory
+[liu@, , 1619014581109,231650] before create new factory
+[liu@, , 1619014581109,248313] after find criuPath
+[liu@, , 1619014581109,260642] after utidmapPath
+[liu@, , 1619014581109,268707] after gtidmapPath
+[liu@, , 1619014581109,282809] after mkdir for root
+[liu@, , 1619014581109,335773] after iterate all option for l
+[liu@, , 1619014581109,344327] load factory finish
+[liu@, , 1619014581111,603029] find target container id
+[liu@, , 1619014581111,623715] before load factory
+[liu@, , 1619014581111,666646] before create new factory
+[liu@, , 1619014581111,676103] after find criuPath
+[liu@, , 1619014581111,683960] after utidmapPath
+[liu@, , 1619014581111,691740] after gtidmapPath
+[liu@, , 1619014581111,705709] after mkdir for root
+[liu@, , 1619014581111,715218] after iterate all option for l
+[liu@, , 1619014581111,723075] load factory finish
+[liu@, , 1619014581113,576300] find containers by ids
+
+4517937 4652830 11127269 14177333 
+[liu@, , 1619014581123,307102] fork complete
+Memory Usage Fork Begin
+RSS: MB
+19.1211
+18.4688
+18.4688
+18.4688
+18.4688
+18.4688
+18.4688
+18.4688
+18.4688
+18.4688
+18.4688
+18.4688
+18.4688
+PSS: MB
+8.22949
+7
+6.99707
+6.99707
+6.99707
+6.99707
+6.99707
+6.99707
+6.99707
+6.99707
+6.99707
+6.99707
+6.97949
+Detail Logs Begin:
+PID: 33367
+Total:
+0.0302505 GB
+RSS:
+19.1211 MB
+PSS:
+8.22949 MB
+Private_Dirty
+4.27344 MB
+PID: 33408
+Total:
+0.0464745 GB
+RSS:
+18.4688 MB
+PSS:
+7 MB
+Private_Dirty
+6.11719 MB
+PID: 33509
+Total:
+0.0464745 GB
+RSS:
+18.4688 MB
+PSS:
+6.99707 MB
+Private_Dirty
+6.11328 MB
+PID: 33639
+Total:
+0.0464745 GB
+RSS:
+18.4688 MB
+PSS:
+6.99707 MB
+Private_Dirty
+6.11328 MB
+PID: 33793
+Total:
+0.0464745 GB
+RSS:
+18.4688 MB
+PSS:
+6.99707 MB
+Private_Dirty
+6.11328 MB
+PID: 33984
+Total:
+0.0464745 GB
+RSS:
+18.4688 MB
+PSS:
+6.99707 MB
+Private_Dirty
+6.11328 MB
+PID: 34206
+Total:
+0.0464745 GB
+RSS:
+18.4688 MB
+PSS:
+6.99707 MB
+Private_Dirty
+6.11328 MB
+PID: 34454
+Total:
+0.0464745 GB
+RSS:
+18.4688 MB
+PSS:
+6.99707 MB
+Private_Dirty
+6.11328 MB
+PID: 34736
+Total:
+0.0464745 GB
+RSS:
+18.4688 MB
+PSS:
+6.99707 MB
+Private_Dirty
+6.11328 MB
+PID: 35055
+Total:
+0.0464745 GB
+RSS:
+18.4688 MB
+PSS:
+6.99707 MB
+Private_Dirty
+6.11328 MB
+PID: 35398
+Total:
+0.0464745 GB
+RSS:
+18.4688 MB
+PSS:
+6.99707 MB
+Private_Dirty
+6.11328 MB
+PID: 35772
+Total:
+0.0464745 GB
+RSS:
+18.4688 MB
+PSS:
+6.99707 MB
+Private_Dirty
+6.11328 MB
+PID: 36182
+Total:
+0.0464745 GB
+RSS:
+18.4688 MB
+PSS:
+6.97949 MB
+Private_Dirty
+6.07812 MB
+Memory Usage Fork End
+[liu@, , 1619014586644,743968] start fork
+[liu@, , 1619014586644,770896] before find target container id
+[liu@, , 1619014586644,779971] before load factory
+[liu@, , 1619014586644,850585] before create new factory
+[liu@, , 1619014586644,861427] after find criuPath
+[liu@, , 1619014586644,869899] after utidmapPath
+[liu@, , 1619014586644,875692] after gtidmapPath
+[liu@, , 1619014586644,886692] after mkdir for root
+[liu@, , 1619014586644,924677] after iterate all option for l
+[liu@, , 1619014586644,930713] load factory finish
+[liu@, , 1619014586646,476891] find target container id
+[liu@, , 1619014586646,504179] before load factory
+[liu@, , 1619014586646,534870] before create new factory
+[liu@, , 1619014586646,541284] after find criuPath
+[liu@, , 1619014586646,546775] after utidmapPath
+[liu@, , 1619014586646,552118] after gtidmapPath
+[liu@, , 1619014586646,560501] after mkdir for root
+[liu@, , 1619014586646,567092] after iterate all option for l
+[liu@, , 1619014586646,572402] load factory finish
+[liu@, , 1619014586647,832290] find containers by ids
+
+3101188 3203575 10298324 12226762 
+[liu@, , 1619014586657,004607] fork complete
+Memory Usage Fork Begin
+RSS: MB
+19.1211
+18.4688
+18.4688
+18.4688
+18.4688
+18.4688
+18.4688
+18.4688
+18.4688
+18.4688
+18.4688
+18.4688
+18.4688
+18.4688
+PSS: MB
+8.16699
+6.93652
+6.93359
+6.93359
+6.93359
+6.93359
+6.93359
+6.93359
+6.93359
+6.93359
+6.93359
+6.93359
+6.93359
+6.91602
+Detail Logs Begin:
+PID: 33367
+Total:
+0.0302505 GB
+RSS:
+19.1211 MB
+PSS:
+8.16699 MB
+Private_Dirty
+4.27344 MB
+PID: 33408
+Total:
+0.0464745 GB
+RSS:
+18.4688 MB
+PSS:
+6.93652 MB
+Private_Dirty
+6.11719 MB
+PID: 33509
+Total:
+0.0464745 GB
+RSS:
+18.4688 MB
+PSS:
+6.93359 MB
+Private_Dirty
+6.11328 MB
+PID: 33639
+Total:
+0.0464745 GB
+RSS:
+18.4688 MB
+PSS:
+6.93359 MB
+Private_Dirty
+6.11328 MB
+PID: 33793
+Total:
+0.0464745 GB
+RSS:
+18.4688 MB
+PSS:
+6.93359 MB
+Private_Dirty
+6.11328 MB
+PID: 33984
+Total:
+0.0464745 GB
+RSS:
+18.4688 MB
+PSS:
+6.93359 MB
+Private_Dirty
+6.11328 MB
+PID: 34206
+Total:
+0.0464745 GB
+RSS:
+18.4688 MB
+PSS:
+6.93359 MB
+Private_Dirty
+6.11328 MB
+PID: 34454
+Total:
+0.0464745 GB
+RSS:
+18.4688 MB
+PSS:
+6.93359 MB
+Private_Dirty
+6.11328 MB
+PID: 34736
+Total:
+0.0464745 GB
+RSS:
+18.4688 MB
+PSS:
+6.93359 MB
+Private_Dirty
+6.11328 MB
+PID: 35055
+Total:
+0.0464745 GB
+RSS:
+18.4688 MB
+PSS:
+6.93359 MB
+Private_Dirty
+6.11328 MB
+PID: 35398
+Total:
+0.0464745 GB
+RSS:
+18.4688 MB
+PSS:
+6.93359 MB
+Private_Dirty
+6.11328 MB
+PID: 35772
+Total:
+0.0464745 GB
+RSS:
+18.4688 MB
+PSS:
+6.93359 MB
+Private_Dirty
+6.11328 MB
+PID: 36182
+Total:
+0.0464745 GB
+RSS:
+18.4688 MB
+PSS:
+6.93359 MB
+Private_Dirty
+6.11328 MB
+PID: 36619
+Total:
+0.0464745 GB
+RSS:
+18.4688 MB
+PSS:
+6.91602 MB
+Private_Dirty
+6.07812 MB
+Memory Usage Fork End
+[liu@, , 1619014592468,257333] start fork
+[liu@, , 1619014592468,279851] before find target container id
+[liu@, , 1619014592468,289268] before load factory
+[liu@, , 1619014592468,360160] before create new factory
+[liu@, , 1619014592468,371134] after find criuPath
+[liu@, , 1619014592468,380008] after utidmapPath
+[liu@, , 1619014592468,385861] after gtidmapPath
+[liu@, , 1619014592468,396546] after mkdir for root
+[liu@, , 1619014592468,436517] after iterate all option for l
+[liu@, , 1619014592468,442604] load factory finish
+[liu@, , 1619014592470,104871] find target container id
+[liu@, , 1619014592470,119870] before load factory
+[liu@, , 1619014592470,151836] before create new factory
+[liu@, , 1619014592470,165486] after find criuPath
+[liu@, , 1619014592470,171487] after utidmapPath
+[liu@, , 1619014592470,177567] after gtidmapPath
+[liu@, , 1619014592470,187204] after mkdir for root
+[liu@, , 1619014592470,194324] after iterate all option for l
+[liu@, , 1619014592470,200242] load factory finish
+[liu@, , 1619014592471,498795] find containers by ids
+
+3253872 3358114 10326955 13631888 
+[liu@, , 1619014592481,932647] fork complete
+Memory Usage Fork Begin
+RSS: MB
+19.1211
+18.4688
+18.4688
+18.4688
+18.4688
+18.4688
+18.4688
+18.4688
+18.4688
+18.4688
+18.4688
+18.4688
+18.4688
+18.4688
+18.4688
+PSS: MB
+8.11426
+6.87988
+6.87598
+6.87598
+6.87598
+6.87598
+6.87598
+6.87598
+6.87598
+6.87598
+6.87598
+6.87598
+6.87598
+6.87598
+6.8584
+Detail Logs Begin:
+PID: 33367
+Total:
+0.0302505 GB
+RSS:
+19.1211 MB
+PSS:
+8.11426 MB
+Private_Dirty
+4.27344 MB
+PID: 33408
+Total:
+0.0464745 GB
+RSS:
+18.4688 MB
+PSS:
+6.87988 MB
+Private_Dirty
+6.11719 MB
+PID: 33509
+Total:
+0.0464745 GB
+RSS:
+18.4688 MB
+PSS:
+6.87598 MB
+Private_Dirty
+6.11328 MB
+PID: 33639
+Total:
+0.0464745 GB
+RSS:
+18.4688 MB
+PSS:
+6.87598 MB
+Private_Dirty
+6.11328 MB
+PID: 33793
+Total:
+0.0464745 GB
+RSS:
+18.4688 MB
+PSS:
+6.87598 MB
+Private_Dirty
+6.11328 MB
+PID: 33984
+Total:
+0.0464745 GB
+RSS:
+18.4688 MB
+PSS:
+6.87598 MB
+Private_Dirty
+6.11328 MB
+PID: 34206
+Total:
+0.0464745 GB
+RSS:
+18.4688 MB
+PSS:
+6.87598 MB
+Private_Dirty
+6.11328 MB
+PID: 34454
+Total:
+0.0464745 GB
+RSS:
+18.4688 MB
+PSS:
+6.87598 MB
+Private_Dirty
+6.11328 MB
+PID: 34736
+Total:
+0.0464745 GB
+RSS:
+18.4688 MB
+PSS:
+6.87598 MB
+Private_Dirty
+6.11328 MB
+PID: 35055
+Total:
+0.0464745 GB
+RSS:
+18.4688 MB
+PSS:
+6.87598 MB
+Private_Dirty
+6.11328 MB
+PID: 35398
+Total:
+0.0464745 GB
+RSS:
+18.4688 MB
+PSS:
+6.87598 MB
+Private_Dirty
+6.11328 MB
+PID: 35772
+Total:
+0.0464745 GB
+RSS:
+18.4688 MB
+PSS:
+6.87598 MB
+Private_Dirty
+6.11328 MB
+PID: 36182
+Total:
+0.0464745 GB
+RSS:
+18.4688 MB
+PSS:
+6.87598 MB
+Private_Dirty
+6.11328 MB
+PID: 36619
+Total:
+0.0464745 GB
+RSS:
+18.4688 MB
+PSS:
+6.87598 MB
+Private_Dirty
+6.11328 MB
+PID: 37086
+Total:
+0.0464745 GB
+RSS:
+18.4688 MB
+PSS:
+6.8584 MB
+Private_Dirty
+6.07812 MB
+Memory Usage Fork End
+[liu@, , 1619014598543,844495] start fork
+[liu@, , 1619014598543,872438] before find target container id
+[liu@, , 1619014598543,882566] before load factory
+[liu@, , 1619014598543,958906] before create new factory
+[liu@, , 1619014598543,971156] after find criuPath
+[liu@, , 1619014598543,980926] after utidmapPath
+[liu@, , 1619014598543,987427] after gtidmapPath
+[liu@, , 1619014598543,999358] after mkdir for root
+[liu@, , 1619014598544,041600] after iterate all option for l
+[liu@, , 1619014598544,048700] load factory finish
+[liu@, , 1619014598545,649647] find target container id
+[liu@, , 1619014598545,661454] before load factory
+[liu@, , 1619014598545,686795] before create new factory
+[liu@, , 1619014598545,692058] after find criuPath
+[liu@, , 1619014598545,696678] after utidmapPath
+[liu@, , 1619014598545,701149] after gtidmapPath
+[liu@, , 1619014598545,709029] after mkdir for root
+[liu@, , 1619014598545,714500] after iterate all option for l
+[liu@, , 1619014598545,719156] load factory finish
+[liu@, , 1619014598546,741975] find containers by ids
+
+2908373 3000059 10183647 11793103 
+[liu@, , 1619014598555,671692] fork complete
+Memory Usage Fork Begin
+RSS: MB
+19.1211
+18.4688
+18.4688
+18.4688
+18.4688
+18.4688
+18.4688
+18.4688
+18.4688
+18.4688
+18.4688
+18.4688
+18.4688
+18.4688
+18.4688
+18.4688
+PSS: MB
+8.07715
+6.83789
+6.83496
+6.83496
+6.83496
+6.83496
+6.83496
+6.83496
+6.83496
+6.83496
+6.83496
+6.83496
+6.83496
+6.83496
+6.83496
+6.81738
+Detail Logs Begin:
+PID: 33367
+Total:
+0.0302505 GB
+RSS:
+19.1211 MB
+PSS:
+8.07715 MB
+Private_Dirty
+4.27344 MB
+PID: 33408
+Total:
+0.0464745 GB
+RSS:
+18.4688 MB
+PSS:
+6.83789 MB
+Private_Dirty
+6.11719 MB
+PID: 33509
+Total:
+0.0464745 GB
+RSS:
+18.4688 MB
+PSS:
+6.83496 MB
+Private_Dirty
+6.11328 MB
+PID: 33639
+Total:
+0.0464745 GB
+RSS:
+18.4688 MB
+PSS:
+6.83496 MB
+Private_Dirty
+6.11328 MB
+PID: 33793
+Total:
+0.0464745 GB
+RSS:
+18.4688 MB
+PSS:
+6.83496 MB
+Private_Dirty
+6.11328 MB
+PID: 33984
+Total:
+0.0464745 GB
+RSS:
+18.4688 MB
+PSS:
+6.83496 MB
+Private_Dirty
+6.11328 MB
+PID: 34206
+Total:
+0.0464745 GB
+RSS:
+18.4688 MB
+PSS:
+6.83496 MB
+Private_Dirty
+6.11328 MB
+PID: 34454
+Total:
+0.0464745 GB
+RSS:
+18.4688 MB
+PSS:
+6.83496 MB
+Private_Dirty
+6.11328 MB
+PID: 34736
+Total:
+0.0464745 GB
+RSS:
+18.4688 MB
+PSS:
+6.83496 MB
+Private_Dirty
+6.11328 MB
+PID: 35055
+Total:
+0.0464745 GB
+RSS:
+18.4688 MB
+PSS:
+6.83496 MB
+Private_Dirty
+6.11328 MB
+PID: 35398
+Total:
+0.0464745 GB
+RSS:
+18.4688 MB
+PSS:
+6.83496 MB
+Private_Dirty
+6.11328 MB
+PID: 35772
+Total:
+0.0464745 GB
+RSS:
+18.4688 MB
+PSS:
+6.83496 MB
+Private_Dirty
+6.11328 MB
+PID: 36182
+Total:
+0.0464745 GB
+RSS:
+18.4688 MB
+PSS:
+6.83496 MB
+Private_Dirty
+6.11328 MB
+PID: 36619
+Total:
+0.0464745 GB
+RSS:
+18.4688 MB
+PSS:
+6.83496 MB
+Private_Dirty
+6.11328 MB
+PID: 37086
+Total:
+0.0464745 GB
+RSS:
+18.4688 MB
+PSS:
+6.83496 MB
+Private_Dirty
+6.11328 MB
+PID: 37594
+Total:
+0.0464745 GB
+RSS:
+18.4688 MB
+PSS:
+6.81738 MB
+Private_Dirty
+6.07812 MB
+Memory Usage Fork End
+[liu@, , 1619014604860,111243] start fork
+[liu@, , 1619014604860,142841] before find target container id
+[liu@, , 1619014604860,154481] before load factory
+[liu@, , 1619014604860,244261] before create new factory
+[liu@, , 1619014604860,256673] after find criuPath
+[liu@, , 1619014604860,265568] after utidmapPath
+[liu@, , 1619014604860,271599] after gtidmapPath
+[liu@, , 1619014604860,282772] after mkdir for root
+[liu@, , 1619014604860,332318] after iterate all option for l
+[liu@, , 1619014604860,339359] load factory finish
+[liu@, , 1619014604861,981839] find target container id
+[liu@, , 1619014604861,997995] before load factory
+[liu@, , 1619014604862,029891] before create new factory
+[liu@, , 1619014604862,036707] after find criuPath
+[liu@, , 1619014604862,042696] after utidmapPath
+[liu@, , 1619014604862,048339] after gtidmapPath
+[liu@, , 1619014604862,057110] after mkdir for root
+[liu@, , 1619014604862,063972] after iterate all option for l
+[liu@, , 1619014604862,069792] load factory finish
+[liu@, , 1619014604863,426423] find containers by ids
+
+3328319 3435335 10306852 11924212 
+[liu@, , 1619014604872,064772] fork complete
+Memory Usage Fork Begin
+RSS: MB
+19.1211
+18.4688
+18.4688
+18.4688
+18.4688
+18.4688
+18.4688
+18.4688
+18.4688
+18.4688
+18.4688
+18.4688
+18.4688
+18.4688
+18.4688
+18.4688
+18.4688
+PSS: MB
+8.02344
+6.78516
+6.78125
+6.78125
+6.78125
+6.78125
+6.78125
+6.78125
+6.78125
+6.78125
+6.78125
+6.78125
+6.78125
+6.78125
+6.78125
+6.78125
+6.76367
+Detail Logs Begin:
+PID: 33367
+Total:
+0.0302505 GB
+RSS:
+19.1211 MB
+PSS:
+8.02344 MB
+Private_Dirty
+4.27344 MB
+PID: 33408
+Total:
+0.0464745 GB
+RSS:
+18.4688 MB
+PSS:
+6.78516 MB
+Private_Dirty
+6.11719 MB
+PID: 33509
+Total:
+0.0464745 GB
+RSS:
+18.4688 MB
+PSS:
+6.78125 MB
+Private_Dirty
+6.11328 MB
+PID: 33639
+Total:
+0.0464745 GB
+RSS:
+18.4688 MB
+PSS:
+6.78125 MB
+Private_Dirty
+6.11328 MB
+PID: 33793
+Total:
+0.0464745 GB
+RSS:
+18.4688 MB
+PSS:
+6.78125 MB
+Private_Dirty
+6.11328 MB
+PID: 33984
+Total:
+0.0464745 GB
+RSS:
+18.4688 MB
+PSS:
+6.78125 MB
+Private_Dirty
+6.11328 MB
+PID: 34206
+Total:
+0.0464745 GB
+RSS:
+18.4688 MB
+PSS:
+6.78125 MB
+Private_Dirty
+6.11328 MB
+PID: 34454
+Total:
+0.0464745 GB
+RSS:
+18.4688 MB
+PSS:
+6.78125 MB
+Private_Dirty
+6.11328 MB
+PID: 34736
+Total:
+0.0464745 GB
+RSS:
+18.4688 MB
+PSS:
+6.78125 MB
+Private_Dirty
+6.11328 MB
+PID: 35055
+Total:
+0.0464745 GB
+RSS:
+18.4688 MB
+PSS:
+6.78125 MB
+Private_Dirty
+6.11328 MB
+PID: 35398
+Total:
+0.0464745 GB
+RSS:
+18.4688 MB
+PSS:
+6.78125 MB
+Private_Dirty
+6.11328 MB
+PID: 35772
+Total:
+0.0464745 GB
+RSS:
+18.4688 MB
+PSS:
+6.78125 MB
+Private_Dirty
+6.11328 MB
+PID: 36182
+Total:
+0.0464745 GB
+RSS:
+18.4688 MB
+PSS:
+6.78125 MB
+Private_Dirty
+6.11328 MB
+PID: 36619
+Total:
+0.0464745 GB
+RSS:
+18.4688 MB
+PSS:
+6.78125 MB
+Private_Dirty
+6.11328 MB
+PID: 37086
+Total:
+0.0464745 GB
+RSS:
+18.4688 MB
+PSS:
+6.78125 MB
+Private_Dirty
+6.11328 MB
+PID: 37594
+Total:
+0.0464745 GB
+RSS:
+18.4688 MB
+PSS:
+6.78125 MB
+Private_Dirty
+6.11328 MB
+PID: 38127
+Total:
+0.0464745 GB
+RSS:
+18.4688 MB
+PSS:
+6.76367 MB
+Private_Dirty
+6.07812 MB
+Memory Usage Fork End
+[Test Result, (fork) concurrent cases: 0]
+[Test Result, (fork) concurrent cases: 1]
+[Test Result, (fork) concurrent cases: 2]
+[Test Result, (fork) concurrent cases: 3]
+[Test Result, (fork) concurrent cases: 4]
+[Test Result, (fork) concurrent cases: 5]
+[Test Result, (fork) concurrent cases: 6]
+[Test Result, (fork) concurrent cases: 7]
+[Test Result, (fork) concurrent cases: 8]
+[Test Result, (fork) concurrent cases: 9]
+[Test Result, (fork) concurrent cases: 10]
+[Test Result, (fork) concurrent cases: 11]
+[Test Result, (fork) concurrent cases: 12]
+[Test Result, (fork) concurrent cases: 13]
+[Test Result, (fork) concurrent cases: 14]
+[Test Result, (fork) concurrent cases: 15]

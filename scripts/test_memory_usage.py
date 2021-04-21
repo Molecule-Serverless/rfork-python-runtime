@@ -18,6 +18,7 @@ def test_fork_start():
         time.sleep(1)
         print("[Test Result, (fork) concurrent cases: %d]" % i)
         os.system(COMMAND_DUMP_RUN)
+        time.sleep(1)
     # print(latencies)
 
 # pre-requisite: finish the building of the baseline container bundle, i.e., ~/.base/baseline/rootfs and ~/.base/baseline/config.json
@@ -29,9 +30,11 @@ def test_baseline_start():
 
     for i in range(TEST_TIMES):
         os.system(COMMAND_LOOP_RUN % i)
-        time.sleep(0.1)
+        time.sleep(1)
         print("[Test Result, (baseline) concurrent cases: %d]" % i)
         os.system(COMMAND_DUMP_RUN)
+        time.sleep(1)
+	
         #print(start_latency, e2e_latency)
     # print(latencies)
 
