@@ -2,7 +2,7 @@ import os
 import re
 import sys
 import time
-TEST_TIMES = 10
+TEST_TIMES = 3
 TEST_INVOKETIME_PATTERN = {"baseline": "start run container", "fork": "start fork"}
 USAGE="python3 test_baseline.py [test], test can be \"baseline\" or \"fork\"\nIf no test is specified, it runs all tests by default"
 
@@ -13,14 +13,14 @@ def test_fork_start():
     e2e_all_latencies = []
     ENDPOINT_BUNDLE="%s/.base/spin0/rootfs" %os.environ['HOME']
     COMMAND_FORK = "./run_fork.sh"
-    COMMAND_LOOP_RUN = "./run_baseline_loop.sh %d"
+    #COMMAND_LOOP_RUN = "./run_baseline_loop.sh %d"
 
     for i in range(TEST_TIMES):
         exec_ = os.popen(COMMAND_FORK)
         output_lines = exec_.read().strip().split('\n') # only contains parent output
 
         # Wait for the child to write the timestamp into the log
-        time.sleep(0.1)
+        time.sleep(40)
 
         output_line_child = open(ENDPOINT_BUNDLE + "/log.txt", "r").read()
         output_lines.append(output_line_child)
@@ -37,10 +37,10 @@ def test_fork_start():
 
         format_result(latencies, "fork-startup")
         format_result(e2e_latencies, "fork-end2end")
-        os.system(COMMAND_LOOP_RUN % i)
-        latencies = []
+        #os.system(COMMAND_LOOP_RUN % i)
+        #latencies = []
         format_scale_result(all_latencies, "fork-startup")
-        e2e_latencies = []
+        #e2e_latencies = []
         format_scale_result(e2e_all_latencies, "fork-end2end")
     # print(latencies)
 
