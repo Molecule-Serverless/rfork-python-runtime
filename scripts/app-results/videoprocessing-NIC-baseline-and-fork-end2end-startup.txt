@@ -1,0 +1,206 @@
+=============== baseline-startup result ===============
+latency (ms):
+avg	50%	75%	90%	95%	99%
+1525.00	1525	1525	1525	1525	1525
+=============== baseline-end2end result ===============
+latency (ms):
+avg	50%	75%	90%	95%	99%
+239523.00	239523	239523	239523	239523	239523
+=============== baseline-startup Scale result ===============
+0	1525
+=============== baseline-end2end Scale result ===============
+0	239523
+=============== baseline-startup result ===============
+latency (ms):
+avg	50%	75%	90%	95%	99%
+1647.50	1525	1525	1525	1525	1525
+=============== baseline-end2end result ===============
+latency (ms):
+avg	50%	75%	90%	95%	99%
+239564.00	239523	239523	239523	239523	239523
+=============== baseline-startup Scale result ===============
+0	1525
+1	1770
+=============== baseline-end2end Scale result ===============
+0	239523
+1	239605
+Traceback (most recent call last):
+  File "test_app.py", line 153, in <module>
+    test_baseline_start()
+  File "test_app.py", line 58, in test_baseline_start
+    output_lines = exec_.read().strip().split('\n')
+KeyboardInterrupt
+Traceback (most recent call last):
+  File "/env/daemon-base.py", line 32, in <module>
+    main()
+  File "/env/daemon-base.py", line 29, in main
+    start_faas_server()
+  File "/env/daemon-base.py", line 22, in start_faas_server
+    print(func.invokeHandler())
+  File "/code/index.py", line 70, in invokeHandler
+    'video_path':'/data/SampleVideo_1280x720_10mb.mp4'})
+  File "/code/index.py", line 61, in handler
+    latency, upload_path = video_processing(object_key, download_path)
+  File "/code/index.py", line 39, in video_processing
+    out.write(gray_frame)
+KeyboardInterrupt
+=============== baseline-startup result ===============
+latency (ms):
+avg	50%	75%	90%	95%	99%
+1617.00	1617	1617	1617	1617	1617
+=============== baseline-end2end result ===============
+latency (ms):
+avg	50%	75%	90%	95%	99%
+240073.00	240073	240073	240073	240073	240073
+=============== baseline-startup Scale result ===============
+0	1617
+=============== baseline-end2end Scale result ===============
+0	240073
+=============== baseline-startup result ===============
+latency (ms):
+avg	50%	75%	90%	95%	99%
+1679.50	1617	1617	1617	1617	1617
+=============== baseline-end2end result ===============
+latency (ms):
+avg	50%	75%	90%	95%	99%
+240274.50	240073	240073	240073	240073	240073
+=============== baseline-startup Scale result ===============
+0	1617
+1	1742
+=============== baseline-end2end Scale result ===============
+0	240073
+1	240476
+=============== baseline-startup result ===============
+latency (ms):
+avg	50%	75%	90%	95%	99%
+1698.00	1617	1735	1735	1735	1735
+=============== baseline-end2end result ===============
+latency (ms):
+avg	50%	75%	90%	95%	99%
+240254.67	240073	240215	240215	240215	240215
+=============== baseline-startup Scale result ===============
+0	1617
+1	1735
+2	1742
+=============== baseline-end2end Scale result ===============
+0	240073
+1	240215
+2	240476
+=============== baseline-startup result ===============
+latency (ms):
+avg	50%	75%	90%	95%	99%
+1716.50	1735	1742	1742	1742	1742
+=============== baseline-end2end result ===============
+latency (ms):
+avg	50%	75%	90%	95%	99%
+240233.50	240170	240215	240215	240215	240215
+=============== baseline-startup Scale result ===============
+0	1617
+1	1735
+2	1742
+3	1772
+=============== baseline-end2end Scale result ===============
+0	240073
+1	240170
+2	240215
+3	240476
+=============== baseline-startup result ===============
+latency (ms):
+avg	50%	75%	90%	95%	99%
+1731.40	1735	1742	1772	1772	1772
+=============== baseline-end2end result ===============
+latency (ms):
+avg	50%	75%	90%	95%	99%
+240401.40	240170	240215	240476	240476	240476
+=============== baseline-startup Scale result ===============
+0	1617
+1	1735
+2	1742
+3	1772
+4	1791
+=============== baseline-end2end Scale result ===============
+0	240073
+1	240170
+2	240215
+3	240476
+4	241073
+=============== fork-startup result ===============
+latency (ms):
+avg	50%	75%	90%	95%	99%
+292.00	292	292	292	292	292
+=============== fork-end2end result ===============
+latency (ms):
+avg	50%	75%	90%	95%	99%
+238116.00	238116	238116	238116	238116	238116
+=============== fork-startup Scale result ===============
+0	292
+=============== fork-end2end Scale result ===============
+0	238116
+=============== fork-startup result ===============
+latency (ms):
+avg	50%	75%	90%	95%	99%
+293.00	292	292	292	292	292
+=============== fork-end2end result ===============
+latency (ms):
+avg	50%	75%	90%	95%	99%
+238288.00	238116	238116	238116	238116	238116
+=============== fork-startup Scale result ===============
+0	292
+1	294
+=============== fork-end2end Scale result ===============
+0	238116
+1	238460
+=============== fork-startup result ===============
+latency (ms):
+avg	50%	75%	90%	95%	99%
+292.67	292	292	292	292	292
+=============== fork-end2end result ===============
+latency (ms):
+avg	50%	75%	90%	95%	99%
+238254.00	238116	238186	238186	238186	238186
+=============== fork-startup Scale result ===============
+0	292
+1	292
+2	294
+=============== fork-end2end Scale result ===============
+0	238116
+1	238186
+2	238460
+=============== fork-startup result ===============
+latency (ms):
+avg	50%	75%	90%	95%	99%
+292.50	292	292	292	292	292
+=============== fork-end2end result ===============
+latency (ms):
+avg	50%	75%	90%	95%	99%
+238224.25	238135	238186	238186	238186	238186
+=============== fork-startup Scale result ===============
+0	292
+1	292
+2	292
+3	294
+=============== fork-end2end Scale result ===============
+0	238116
+1	238135
+2	238186
+3	238460
+=============== fork-startup result ===============
+latency (ms):
+avg	50%	75%	90%	95%	99%
+292.20	292	292	292	292	292
+=============== fork-end2end result ===============
+latency (ms):
+avg	50%	75%	90%	95%	99%
+238200.40	238116	238135	238186	238186	238186
+=============== fork-startup Scale result ===============
+0	291
+1	292
+2	292
+3	292
+4	294
+=============== fork-end2end Scale result ===============
+0	238105
+1	238116
+2	238135
+3	238186
+4	238460
