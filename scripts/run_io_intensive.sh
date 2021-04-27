@@ -5,10 +5,10 @@
 source ./config
 BUNDLE_PATH=~/.base/iotensive
 cd $BUNDLE_PATH
-cp config-base.json config.json
+sudo cp config-perf-iso.json config.json
 
 ## A loop to continuously run I/O intensive tasks
 for (( i=0; i<10000; i++ ))
 do
-	sudo $RUNC run baseline
+	sudo $RUNC run $1
 done
