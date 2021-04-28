@@ -11,6 +11,7 @@ def test_fork_start():
     all_latencies = []
     e2e_latencies = []
     e2e_all_latencies = []
+    warm_latencies = []
     ENDPOINT_BUNDLE="%s/.base/spin0/rootfs" %os.environ['HOME']
     COMMAND_FORK = "./run_fork.sh"
     #COMMAND_LOOP_RUN = "./run_baseline_loop.sh %d"
@@ -29,14 +30,17 @@ def test_fork_start():
         # print(invokeTime, startTime)
         start_latency = startTime - invokeTime
         e2e_latency = retTime - invokeTime # End2End latency
+        warm_latency = retTime - startTime # End2End latency
 
         latencies.append(start_latency)
+        warm_latencies.append(warm_latency)
         all_latencies.append(start_latency)
         e2e_latencies.append(e2e_latency)
         e2e_all_latencies.append(e2e_latency)
 
         format_result(latencies, "fork-startup")
         format_result(e2e_latencies, "fork-end2end")
+        format_result(warm_latencies, "warm-startup")
         #os.system(COMMAND_LOOP_RUN % i)
         #latencies = []
         format_scale_result(all_latencies, "fork-startup")
@@ -51,6 +55,7 @@ def test_baseline_start():
     all_latencies = []
     e2e_latencies = []
     e2e_all_latencies = []
+    warm_latencies = []
     COMMAND_RUN = "./run_baseline.sh %d"
 
     for i in range(TEST_TIMES):
@@ -60,13 +65,16 @@ def test_baseline_start():
         invokeTime, startTime, retTime = parse_output_lines(output_lines, "baseline")
         start_latency = startTime - invokeTime
         e2e_latency = retTime - invokeTime # End2End latency
+        warm_latency = retTime - startTime # End2End latency
 
         latencies.append(start_latency)
         all_latencies.append(start_latency)
 
         e2e_latencies.append(e2e_latency)
+        warm_latencies.append(warm_latency)
         e2e_all_latencies.append(e2e_latency)
         format_result(latencies, "baseline-startup")
+        format_result(warm_latencies, "warm-startup")
         format_result(e2e_latencies, "baseline-end2end")
 
         format_scale_result(all_latencies, "baseline-startup")
