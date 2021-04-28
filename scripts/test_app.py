@@ -2,7 +2,7 @@ import os
 import re
 import sys
 import time
-TEST_TIMES = 3
+TEST_TIMES = 10
 TEST_INVOKETIME_PATTERN = {"baseline": "start run container", "fork": "start fork"}
 USAGE="python3 test_baseline.py [test], test can be \"baseline\" or \"fork\"\nIf no test is specified, it runs all tests by default"
 
@@ -20,7 +20,7 @@ def test_fork_start():
         output_lines = exec_.read().strip().split('\n') # only contains parent output
 
         # Wait for the child to write the timestamp into the log
-        time.sleep(40)
+        time.sleep(5)
 
         output_line_child = open(ENDPOINT_BUNDLE + "/log.txt", "r").read()
         output_lines.append(output_line_child)
