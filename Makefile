@@ -7,3 +7,6 @@ base-fs: FORCE
 
 base-spin-image: FORCE
 	gcc spin-base-image/spin.c -o spin-base-image/spin -O2 -static && docker build -t spin-base-image spin-base-image
+
+base-c-image: FORCE
+	gcc c-base-image/daemon.c -o c-base-image/daemon -O2 -static && docker build -t c-base-image c-base-image
