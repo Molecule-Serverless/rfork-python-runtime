@@ -10,11 +10,17 @@
 #include <assert.h>
 #include <stdlib.h>
 
+#include "syscall.h"
+
 #define SOCKET_NAME "fork.sock"
 #define RECEIVE_FD_COUNT 5
 #define MAX_FD_COUNT 128
 #define PID_BUF_LENGTH 32
 
+// TODO: dump key should be passed by runc
+#define DUMP_KEY 73
+
+int swap_device_fd;
 int fork_socket_fd;
 int receive_fds(int fd, int fd_array[]);
 
@@ -70,19 +76,22 @@ int handle_fork_request(int fd) {
             char buf[PID_BUF_LENGTH];
             sprintf(buf, "%d", pid);
             size_t len = strlen(buf);
-            printf("str length: %u\n", len);
+            printf("str length: %lu\n", len);
             size_t send_len = send(fd, buf, len, 0 /* flags */);
-            printf("send length: %u\n", send_len);
+            printf("send length: %lu\n", send_len);
             exit(0);
         } else {
             // the child process
             printf("in client process\n");
             close(fork_socket_fd);
 
-            // TODO: call swap here
-            while (1) {
-                sleep(1000);
-            }
+            // call swap here
+            assert(swap_device_fd > 0);
+            printf("swap_device_fd: %d\n", swap_device_fd);
+            call_swap(swap_device_fd, DUMP_KEY);
+            printf("should never reach here");
+            perror("call_swap");
+            assert(0);
         }
     }
     return 0;
@@ -150,6 +159,12 @@ int main() {
     int fd;
     struct sockaddr_un addr;
 
+    swap_device_fd = sopen();
+    if (swap_device_fd < 0) {
+        perror("sopen");
+        assert(0);
+    }
+
     // create socket fd
     if ((fd = socket(AF_UNIX, SOCK_STREAM, 0)) < 0) {
         perror("socket");
@@ -188,6 +203,16 @@ int main() {
             return -1;
         }
         handle_fork_request(accept_fd);
+        int ret = close(swap_device_fd);
+        if (ret != 0) {
+            perror("close");
+            assert(0);
+        }
+        swap_device_fd = sopen();
+        if (swap_device_fd < 0) {
+            perror("sopen");
+            assert(0);
+        }
     }
 
     return 0;
