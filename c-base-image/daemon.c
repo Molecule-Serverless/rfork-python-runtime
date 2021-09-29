@@ -12,6 +12,14 @@
 
 #include "syscall.h"
 
+// #define DEBUG // Uncomment to enable debug print
+
+#ifdef DEBUG
+    #define debug_printf(...) printf(__VA_ARGS__)
+#else
+    #define debug_printf(...)
+#endif
+
 #define SOCKET_NAME "fork.sock"
 #define RECEIVE_FD_COUNT 5
 #define MAX_FD_COUNT 128
@@ -34,7 +42,7 @@ int handle_fork_request(int fd) {
 
     ret = receive_fds(fd, fd_array);
     if (ret) {
-        printf("receive_fds failed");
+        debug_printf("receive_fds failed");
         return ret;
     }
     target_fd = fd_array[0];
@@ -43,12 +51,12 @@ int handle_fork_request(int fd) {
     ipc_namespace_fd = fd_array[3];
     mnt_namespace_fd = fd_array[4];
 
-    printf("before fork\n");
+    debug_printf("before fork\n");
 
     pid = fork();
     if (pid) {
         // the grand parent process
-        printf("in grand parent process\n");
+        debug_printf("in grand parent process\n");
         close(fd);
         close(target_fd);
         close(uts_namespace_fd);
@@ -58,7 +66,7 @@ int handle_fork_request(int fd) {
         waitpid(pid, NULL, 0);
     } else {
         // the parent process
-        printf("in parent process\n");
+        debug_printf("in parent process\n");
         fchdir(target_fd);
         chroot(".");
         close(target_fd);
@@ -76,20 +84,20 @@ int handle_fork_request(int fd) {
             char buf[PID_BUF_LENGTH];
             sprintf(buf, "%d", pid);
             size_t len = strlen(buf);
-            printf("str length: %lu\n", len);
+            debug_printf("str length: %lu\n", len);
             size_t send_len = send(fd, buf, len, 0 /* flags */);
-            printf("send length: %lu\n", send_len);
+            debug_printf("send length: %lu\n", send_len);
             exit(0);
         } else {
             // the child process
-            printf("in client process\n");
+            debug_printf("in client process\n");
             close(fork_socket_fd);
 
             // call swap here
             assert(swap_device_fd > 0);
-            printf("swap_device_fd: %d\n", swap_device_fd);
+            debug_printf("swap_device_fd: %d\n", swap_device_fd);
             call_swap(swap_device_fd, DUMP_KEY);
-            printf("should never reach here");
+            debug_printf("should never reach here");
             perror("call_swap");
             assert(0);
         }
@@ -134,12 +142,12 @@ int receive_fds(int fd, int fd_array[]) {
     msg.msg_controllen = CMSG_SPACE(received_length);
 
     if ((ret = recvmsg(fd, &msg, 0)) < 0) {
-        printf("ret: %d, errno: %d\n", ret, errno);
+        debug_printf("ret: %d, errno: %d\n", ret, errno);
         perror("recvmsg");
         return -1;
     }
 
-    printf("recvmsg returns %d\n", ret);
+    debug_printf("recvmsg returns %d\n", ret);
 
     cmsg = CMSG_FIRSTHDR(&msg);
     data = (void*)CMSG_DATA(cmsg);
@@ -148,10 +156,10 @@ int receive_fds(int fd, int fd_array[]) {
     assert(cmsg_length - sizeof(struct cmsghdr) == received_length);
     for (int i = 0; i < RECEIVE_FD_COUNT; i++) {
         fd_array[i] = data[i];
-        printf("recv fd: %d\n", data[i]);
+        debug_printf("recv fd: %d\n", data[i]);
     }
 
-    printf("cmsg_length: %d\n", cmsg_length);
+    debug_printf("cmsg_length: %d\n", cmsg_length);
     return 0;
 }
 
