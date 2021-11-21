@@ -1,5 +1,10 @@
-${RUNC} delete -f new-python-test > /dev/null 2>&1
-${RUNC} delete -f python-test > /dev/null 2>&1
+#!/bin/bash
 
-${RUNC} delete -f new-python-test > /dev/null 2>&1
-${RUNC} delete -f python-test > /dev/null 2>&1
+source ./config
+sudo ${RUNC} delete -f new-python-test > /dev/null 2>&1
+sudo ${RUNC} delete -f python-test > /dev/null 2>&1
+
+sudo ${RUNC} delete -f new-python-test > /dev/null 2>&1
+sudo ${RUNC} delete -f python-test > /dev/null 2>&1
+
+sudo ${RUNC} delete -f app-test > /dev/null 2>&1

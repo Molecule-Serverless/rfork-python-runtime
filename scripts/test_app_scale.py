@@ -38,18 +38,15 @@ def test_fork_start():
         e2e_latencies.append(e2e_latency)
         e2e_all_latencies.append(e2e_latency)
 
-        #format_result(latencies, "fork-startup")
-        #format_result(e2e_latencies, "fork-end2end")
-        #format_result(warm_latencies, "warm-startup")
+        format_result(latencies, "fork-startup")
+        format_result(e2e_latencies, "fork-end2end")
+        format_result(warm_latencies, "warm-startup")
         #os.system(COMMAND_LOOP_RUN % i)
         #latencies = []
-        #format_scale_result(all_latencies, "fork-startup")
+        format_scale_result(all_latencies, "fork-startup")
         #e2e_latencies = []
-        #format_scale_result(e2e_all_latencies, "fork-end2end")
-    #print(latencies)
-    format_result(latencies, "fork-startup")
-    format_result(e2e_latencies, "fork-end2end")
-    format_result(warm_latencies, "fork-warm")
+        format_scale_result(e2e_all_latencies, "fork-end2end")
+    # print(latencies)
 
 # pre-requisite: finish the building of the baseline container bundle, i.e., ~/.base/baseline/rootfs and ~/.base/baseline/config.json
 def test_baseline_start():
@@ -76,17 +73,14 @@ def test_baseline_start():
         e2e_latencies.append(e2e_latency)
         warm_latencies.append(warm_latency)
         e2e_all_latencies.append(e2e_latency)
-        #format_result(latencies, "baseline-startup")
-        #format_result(warm_latencies, "warm-startup")
-        #format_result(e2e_latencies, "baseline-end2end")
+        format_result(latencies, "baseline-startup")
+        format_result(warm_latencies, "warm-startup")
+        format_result(e2e_latencies, "baseline-end2end")
 
-        #format_scale_result(all_latencies, "baseline-startup")
-        #format_scale_result(e2e_all_latencies, "baseline-end2end")
+        format_scale_result(all_latencies, "baseline-startup")
+        format_scale_result(e2e_all_latencies, "baseline-end2end")
         #print(start_latency, e2e_latency)
     # print(latencies)
-    format_result(latencies, "baseline-startup")
-    format_result(e2e_latencies, "baseline-end2end")
-    format_result(warm_latencies, "baseline-warm")
 
 
 def parse_output_lines(output_lines, test):

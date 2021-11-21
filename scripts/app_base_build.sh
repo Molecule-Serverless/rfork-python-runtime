@@ -7,7 +7,7 @@ then
 	exit -1
 fi
 
-cd $1
+pushd $1 > /dev/null
 docker build -t baseline-image .
 sudo rm -rf $BUNDLE_PATH/rootfs
 sudo mkdir -p $BUNDLE_PATH/rootfs
@@ -17,3 +17,4 @@ if [[ ! -f "$BUNDLE_PATH/config-base.json" ]]; then
     #cp config-loop.json $BUNDLE_PATH
 fi
 sudo docker export `docker create baseline-image` | sudo tar -C $BUNDLE_PATH/rootfs -xf -
+popd > /dev/null
