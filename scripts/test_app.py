@@ -49,7 +49,7 @@ def test_fork_start():
     #print(latencies)
     format_result(latencies, "fork-startup")
     format_result(e2e_latencies, "fork-end2end")
-    format_result(warm_latencies, "fork-warm")
+    #format_result(warm_latencies, "fork-warm")
 
 # pre-requisite: finish the building of the baseline container bundle, i.e., ~/.base/baseline/rootfs and ~/.base/baseline/config.json
 def test_baseline_start():
@@ -86,7 +86,7 @@ def test_baseline_start():
     # print(latencies)
     format_result(latencies, "baseline-startup")
     format_result(e2e_latencies, "baseline-end2end")
-    format_result(warm_latencies, "baseline-warm")
+    #format_result(warm_latencies, "baseline-warm")
 
 
 def parse_output_lines(output_lines, test):
