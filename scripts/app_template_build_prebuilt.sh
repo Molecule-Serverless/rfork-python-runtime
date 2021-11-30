@@ -11,7 +11,7 @@ docker pull $1 >/dev/null 2>&1
 sudo rm -rf $BUNDLE_PATH/rootfs
 sudo mkdir -p $BUNDLE_PATH/rootfs
 if [[ ! -f "$BUNDLE_PATH/config-base.json" ]]; then
-    echo "Cannot find config.json. Paste a new one"
+    echo "Not find config.json. Paste a new one"
     cp configs/container0/config.json $BUNDLE_PATH/config-base.json
     cp configs/container0/config-loop.json $BUNDLE_PATH/config-loop.json
 fi
