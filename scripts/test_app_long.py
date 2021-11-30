@@ -47,6 +47,7 @@ def test_fork_start():
         #e2e_latencies = []
         #format_scale_result(e2e_all_latencies, "fork-end2end")
     #print(latencies)
+    print("")
     format_result(latencies, "fork-startup")
     format_result(e2e_latencies, "fork-end2end")
     #format_result(warm_latencies, "fork-warm")
@@ -84,6 +85,7 @@ def test_baseline_start():
         #format_scale_result(e2e_all_latencies, "baseline-end2end")
         #print(start_latency, e2e_latency)
     # print(latencies)
+    print("")
     format_result(latencies, "baseline-startup")
     format_result(e2e_latencies, "baseline-end2end")
     # format_result(warm_latencies, "baseline-warm")
