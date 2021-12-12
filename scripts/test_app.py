@@ -21,7 +21,7 @@ def test_fork_start():
         output_lines = exec_.read().strip().split('\n') # only contains parent output
 
         # Wait for the child to write the timestamp into the log
-        time.sleep(10)
+        time.sleep(15)
 
         output_line_child = open(ENDPOINT_BUNDLE + "/log.txt", "r").read()
         output_lines.append(output_line_child)
