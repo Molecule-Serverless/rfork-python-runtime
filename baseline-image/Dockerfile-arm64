@@ -5,3 +5,4 @@ COPY daemon-base.py /env
 COPY daemon-loop.py /env
 COPY img-convertor/ /code
 
+RUN pip install -U Pillow
