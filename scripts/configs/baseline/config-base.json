@@ -133,11 +133,6 @@
 	],
 	"linux": {
 		"resources": {
-			"cpu": {
-				"quota": 250000,
-				"period": 500000,
-				"cpus": "0-1"
-			},
 			"devices": [
 				{
 					"allow": false,
